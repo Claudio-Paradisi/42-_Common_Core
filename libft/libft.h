@@ -17,6 +17,12 @@
 #include <stdio.h>
 #include <stdint.h>
 
+typedef struct s_list
+{
+	void	*content;
+	struct s_list *next;
+}	t_list;
+
 int	ft_isalpha(char c);
 int	ft_isdigit(char c);
 int	ft_isalnum(char c);
