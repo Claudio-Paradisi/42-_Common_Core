@@ -6,12 +6,12 @@
 /*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:25:30 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/11 14:16:03 by cparadis         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:38:09 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

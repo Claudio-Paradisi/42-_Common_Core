@@ -6,37 +6,36 @@
 /*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 11:13:15 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/15 12:47:37 by cparadis         ###   ########.fr       */
+/*   Updated: 2024/12/23 14:25:13 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	size_t	k;
-	char	*buffer;
+	char	*str;
 
 	i = 0;
-	k = 0;
-	buffer = (char *)malloc(ft_strlen(s1) + 1);
-	if (!buffer)
+	if (!s1 || !set)
 		return (NULL);
-	while (s1[i])
+	while (s1[i] != '\0')
 	{
-		j = 0;
-		while (set[j])
-		{
-			if (set[j] == s1[i])
-				break ;
-			j++;
-		}
-		if (set[j] == '\0')
-			buffer[k++] = s1[i];
+		if (ft_strchr(set, s1[i]) == NULL)
+			break ;
 		i++;
 	}
-	buffer[k] = '\0';
-	return (buffer);
+	j = ft_strlen(s1) - 1;
+	while (j != i)
+	{
+		if (ft_strchr(set, s1[j]) == NULL)
+			break ;
+		j--;
+	}
+	str = ft_substr(s1, (unsigned int)i, j - i + 1);
+	if (!str)
+		return (NULL);
+	return (str);
 }

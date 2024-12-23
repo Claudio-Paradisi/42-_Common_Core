@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/23 12:38:19 by cparadis          #+#    #+#             */
+/*   Updated: 2024/12/23 12:40:02 by cparadis         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -34,8 +45,8 @@ static char	*ft_init_str(int len)
 char	*ft_itoa(int n)
 {
 	char	*buffer;
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 	long	nbr;
 
 	nbr = n;
@@ -56,12 +67,4 @@ char	*ft_itoa(int n)
 		buffer[0] = '-';
 	buffer[len] = '\0';
 	return (buffer);
-}
-
-int main()
-{
-	char *ciao = ft_itoa(-27483648);
-	printf("%s\n", ciao);
-	free(ciao);
-	return 0;
 }

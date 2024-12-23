@@ -5,109 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/15 12:57:55 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/16 17:48:12 by cparadis         ###   ########.fr       */
+/*   Created: 2024/12/18 19:06:17 by cparadis          #+#    #+#             */
+/*   Updated: 2024/12/18 19:12:38 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	count_char(const char *s, char c)
+static size_t	count_words(char const *s, char c)
 {
-	size_t	i;
 	size_t	count;
 
-	i = 0;
 	count = 0;
-	while (s[i])
+	while (*s != '\0')
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != '\0')
+		if (*s != c)
 		{
 			count++;
-			while (s[i] && s[i] != c)
-				i++;
+			while (*s != c && *s != '\0')
+				s++;
 		}
+		else
+			s++;
 	}
 	return (count);
 }
 
-static char	*ft_add_str(const char *s, char c, size_t *i)
+static char	*char_skipper(char *s, char c, char x)
 {
-	char	*buffer;
-	size_t	j;
-
-	buffer = NULL;
-	while (s[*i] == c)
-		(*i)++;
-	if (s[*i] != '\0')
+	if (x == '=')
 	{
-		j = 0;
-		while (s[*i + j] && s[*i + j] != c)
-			(j)++;
-		buffer = malloc(j + 1);
-		if (!buffer)
-			return (NULL);
-		j = 0;
-		while (s[*i] && s[*i] != c)
-			buffer[(j)++] = s[(*i)++];
-		buffer[j] = '\0';
+		while (*s == c && *s)
+			s++;
 	}
-	return (buffer);
-}
-
-static void	*ft_free_matrix(char **matrix)
-{
-	size_t	i;
-
-	i = 0;
-	while (matrix[i])
+	else if (x == '!')
 	{
-		free(matrix[i]);
-		i++;
+		while (*s != c && *s)
+			s++;
 	}
-	free(matrix);
-	return (NULL);
+	return (s);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	char	**buffer;
+	char	*start;
+	int		i;
+	int		k;
+	char	**phrase;
+	size_t	words;
 
+	words = count_words(s, c);
 	i = 0;
-	j = 0;
-	buffer = malloc((count_char(s, c) + 1) * sizeof(char *));
-	if (!buffer)
-		return (NULL);
-	while (s[i])
+	phrase = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!phrase)
+		return (0);
+	while (words-- > 0)
 	{
-		buffer[j] = ft_add_str(s, c, &i);
-		if (!buffer[j])
-		{
-			ft_free_matrix(buffer);
-			return (buffer);
-		}
-		j++;
+		k = 0;
+		s = char_skipper((char *)s, c, '=');
+		start = (char *)s;
+		s = char_skipper((char *)s, c, '!');
+		phrase[i] = (char *)malloc(sizeof(char) * ((s - start) + 1));
+		while (start < s)
+			phrase[i][k++] = *start++;
+		phrase[i++][k] = '\0';
 	}
-	buffer[j] = NULL;
-	return (buffer);
-}
-
-int main(int ac, char **av)
-{
-	int i = 0;
-	if (ac > 1)
-	{
-		char **matrice = ft_split(av[1], av[2][0]);
-		while (matrice[i])
-		{
-			printf("%s\n", matrice[i]);
-			free(matrice[i]);
-			i++;
-		}
-		free(matrice);
-	}
+	phrase[i] = NULL;
+	return (phrase);
 }

@@ -6,7 +6,7 @@
 /*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 12:10:15 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/12 13:23:36 by cparadis         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:32:48 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_atoi(const char *str)
 
 	sign = 1;
 	dest = 0;
-	while (*str == ' ' || *str == '\t')
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{

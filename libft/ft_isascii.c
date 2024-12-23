@@ -6,13 +6,13 @@
 /*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 10:43:59 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/10 10:48:50 by cparadis         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:10:50 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(char c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
