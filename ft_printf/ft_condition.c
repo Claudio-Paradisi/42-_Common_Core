@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_condition.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/29 15:07:42 by cparadis          #+#    #+#             */
+/*   Updated: 2024/12/29 15:07:55 by cparadis         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_condition(const char c, int *count, va_list args)
@@ -13,7 +25,7 @@ void	ft_condition(const char c, int *count, va_list args)
 	else if (c == 'x')
 		ft_puthex_low_count(va_arg(args, unsigned int), count);
 	else if (c == 'X')
-		ft_puthex_up_count(va_arg(args, unsigned int), count);	
+		ft_puthex_up_count(va_arg(args, unsigned int), count);
 	else if (c == 'p')
 		ft_putptr_count(va_arg(args, void *), count);
 	else if (c == '%')
