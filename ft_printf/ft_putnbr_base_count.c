@@ -14,7 +14,7 @@
 
 void	ft_putnbr_base_count(unsigned long long n, char *base, int *count)
 {
-	size_t len;
+	size_t	len;
 
 	len = ft_strlen(base);
 	if (n >= len)

@@ -14,7 +14,7 @@
 
 void	ft_putint_count(int n, int *count)
 {
-	long long nbr;
+	long long	nbr;
 
 	nbr = n;
 	if (nbr < 0)
