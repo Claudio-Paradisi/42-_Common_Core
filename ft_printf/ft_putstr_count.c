@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 11:40:46 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/29 13:51:28 by cparadis         ###   ########.fr       */
+/*   Updated: 2024/12/31 14:10:14 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_putstr_count(const char *str, int *count)
 {
+	if (!str)
+	{
+		ft_putstr_count("(null)", count);
+		return ;	
+	}
 	while (*str)
 	{
 		ft_putchar_count(*str, count);
