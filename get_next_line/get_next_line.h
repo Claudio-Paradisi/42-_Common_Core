@@ -23,10 +23,9 @@
 #define FALSE       0
 
 char	*get_next_line(int fd);
-size_t  ft_strlen(const char *s);
-char    *ft_strchr(const char *str, int c);
-char    *ft_strdup(const char *str);
-char    *ft_substr(const char *s, unsigned int start, size_t len);
-char    *ft_strljoin(char *s1, char *s2, size_t start, size_t bs_n_len);
-
+size_t  gnl_strlen(const char *s);
+//char    *ft_strdup(const char *str);
+//char    *ft_substr(const char *s, unsigned int start, size_t len);
+char    *gnl_strljoin(char *s1, char *s2, size_t start, size_t bs_n_len);
+char	**gnl_split(const char *s, char c);
 #endif

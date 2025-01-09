@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	gnl_strlen(const char *s)
 {
 	size_t	count;
 
@@ -25,28 +25,7 @@ size_t	ft_strlen(const char *s)
 	return(count);
 }
 
-char    *ft_strchr(const char *str, int c)
-{
-        size_t  i;
-        char    *dest;
-
-        i = 0;
-        dest = NULL;
-        while (str[i] != '\0')
-        {
-                if (str[i] == c)
-                {
-                        dest = (char *)&str[i];
-                        return (dest);
-                }
-                i++;
-        }
-        if (c == '\0')
-                return ((char *)&str[i]);
-        return (dest);
-}
-
-char    *ft_strdup(const char *str)
+/*char    *gtl_strdup(const char *str)
 {
         size_t          i;
         size_t          len;
@@ -64,9 +43,9 @@ char    *ft_strdup(const char *str)
         }
         buffer[len] = '\0';
         return (buffer);
-}
 
-char    *ft_substr(const char *s, unsigned int start, size_t len)
+
+char    *gnl_substr(const char *s, unsigned int start, size_t len)
 {
         char                    *buffer;
         size_t                  i;
@@ -75,9 +54,9 @@ char    *ft_substr(const char *s, unsigned int start, size_t len)
         i = 0;
         if (!s)
                 return (NULL);
-        s_len = ft_strlen(s);
-        if (start >= s_len || len == 0)
-                return (ft_strdup(""));
+        s_len = gtl_strlen(s);
+//        if (start >= s_len || len == 0)
+//                return (gtl_strdup(""));
         if (start + len > s_len)
                 len = s_len - start;
         buffer = malloc(len + 1);
@@ -92,9 +71,9 @@ char    *ft_substr(const char *s, unsigned int start, size_t len)
         buffer[i] = '\0';
         return (buffer);
 }
+*/
 
-
-char    *ft_strljoin(char *s1, char *s2, size_t start, size_t bs_n_len)
+char    *gnl_strljoin(char *s1, char *s2, size_t start, size_t bs_n_len)
 {
         char    *buffer;
         size_t  len;
@@ -104,7 +83,7 @@ char    *ft_strljoin(char *s1, char *s2, size_t start, size_t bs_n_len)
         if (!s2)
                 return (NULL);
         i = 0;
-        len = (s1 ? ft_strlen(s1) : 0) + ft_strlen(s2);
+        len = (s1 ? gnl_strlen(s1) : 0) + gnl_strlen(s2);
         buffer = (char *)malloc((len + 1) * sizeof(char));
         if (!buffer)
                 return (NULL);
@@ -122,4 +101,69 @@ char    *ft_strljoin(char *s1, char *s2, size_t start, size_t bs_n_len)
         buffer[i + j] = '\0';
         free(s1);
         return (buffer);
+}
+
+static size_t	count_words(char const *s, char c)
+{
+	size_t	count;
+	
+	if (*s)
+		return (0);
+	count = 0;
+	while (*s != '\0')
+	{
+		if (*s != c)
+		{
+			count++;
+			while (*s != c && *s != '\0')
+				s++;
+		}
+		else
+			s++;
+	}
+	return (count);
+}
+
+static char	*char_skipper(char *s, char c, int check)
+{
+	if (check == TRUE)
+	{
+		while (*s == c && *s)
+			s++;
+	}
+	else if (check == FALSE)
+	{
+		while (*s != c && *s)
+			s++;
+	}
+	return (s);
+}
+
+char	**gnl_split(const char *s, char c)
+{
+	char	*start;
+	int		i;
+	int		k;
+	char	**matrix;
+	size_t	words;
+
+	words = count_words(s, c);
+	i = 0;
+	matrix = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!matrix)
+		return (0);
+	while (words-- > 0)
+	{
+		k = 0;
+		s = char_skipper((char *)s, c, TRUE);
+		start = (char *)s;
+		s = char_skipper((char *)s, c, FALSE);
+		matrix[i] = (char *)malloc(sizeof(char) * ((s - start) + 2));
+		while (start < s)
+			matrix[i][k++] = *start++;
+		matrix[i][k] = '\n';
+		matrix[i++][k + 1] = '\0';
+	}
+	matrix[i] = NULL;
+	return (matrix);
 }
