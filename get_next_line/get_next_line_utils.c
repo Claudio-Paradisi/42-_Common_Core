@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 14:55:14 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/09 18:47:53 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/01/11 13:41:28 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,6 @@ char    *gnl_strndup(char *str, size_t size)
 	dup[size] = '\0';
 	return (dup);
 }
-/*
-char    *gnl_substr(const char *s, unsigned int start, size_t len)
-{
-        char                    *buffer;
-        size_t                  i;
-        size_t                  s_len;
-
-        i = 0;
-        if (!s)
-                return (NULL);
-        s_len = gtl_strlen(s);
-//        if (start >= s_len || len == 0)
-//                return (gtl_strdup(""));
-        if (start + len > s_len)
-                len = s_len - start;
-        buffer = malloc(len + 1);
-        if (!buffer)
-                return (NULL);
-        i = 0;
-        while (i < len)
-        {
-                buffer[i] = s[start + i];
-                i++;
-        }
-        buffer[i] = '\0';
-        return (buffer);
-}
-*/
 
 char    *gnl_strjoin(char *s1, char *s2)
 {
@@ -98,6 +70,5 @@ char    *gnl_strjoin(char *s1, char *s2)
 	}
 	line[i + j] = '\0';
 	free(s1);
-	free(s2);
 	return (line);
 }
