@@ -27,8 +27,10 @@
 
 char	*get_next_line(int fd);
 size_t	gnl_strlen(const char *s);
-char	*gnl_strndup(const char *str);
+char	*gnl_strndup(char *str, size_t size);
 //char    *ft_substr(const char *s, unsigned int start, size_t len);
-char	*gnl_strljoin(char *s1, char *s2);
+char	*gnl_strjoin(char *s1, char *s2);
 //char	**gnl_split(const char *s, char c);
+void	upgrade_stash(char *stash);
+int     check_stash(char *stash, size_t *bsn_pos);
 #endif

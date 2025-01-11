@@ -33,15 +33,15 @@ char    *gnl_strndup(char *str, size_t size)
 	char            *dup;
 
 	i = 0;
-	dup = (char *)malloc((len + 1) * sizeof(char));
+	dup = (char *)malloc((size + 1) * sizeof(char));
 	if (!dup)
 		return (NULL);
-	while (i < len)
+	while (i < size)
 	{
 		dup[i] = str[i];
 		i++;
 	}
-	dup[len] = '\0';
+	dup[size] = '\0';
 	return (dup);
 }
 /*
