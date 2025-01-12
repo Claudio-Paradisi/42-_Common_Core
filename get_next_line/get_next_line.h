@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:02:04 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/11 15:59:40 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:27:09 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #define GET_NEXT_LINE_H
 
 	#ifndef BUFFER_SIZE 
-	#define BUFFER_SIZE 1
+	#define BUFFER_SIZE 1000000
 #endif
 
 #define TRUE        1
