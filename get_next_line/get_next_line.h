@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 12:02:04 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/12 13:27:09 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:27:14 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 #define GET_NEXT_LINE_H
 
 	#ifndef BUFFER_SIZE 
-	#define BUFFER_SIZE 1000000
-#endif
+	#define BUFFER_SIZE 5
+	#endif
 
 #define TRUE        1
 #define FALSE       0
@@ -31,4 +31,5 @@ char	*gnl_strndup(char *str, size_t size);
 char	*gnl_strjoin(char *s1, char *s2);
 void	upgrade_stash(char *stash);
 int     check_stash(char *stash, size_t *bsn_pos);
+char    *gnl_free_line(char *line);
 #endif

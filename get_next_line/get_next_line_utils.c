@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 14:55:14 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/11 13:41:28 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/01/13 18:22:12 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,10 @@ char    *gnl_strjoin(char *s1, char *s2)
 	line[i + j] = '\0';
 	free(s1);
 	return (line);
+}
+
+char    *gnl_free_line(char *line)
+{
+    free(line);
+    return (NULL);
 }

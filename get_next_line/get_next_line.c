@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:55:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/12 13:21:06 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/01/13 14:57:43 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,4 +168,3 @@ int main()
 
     return (0); // Indica che tutto è andato bene
 }
-
