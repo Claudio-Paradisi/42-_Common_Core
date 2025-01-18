@@ -1,3 +1,0 @@
-ciao sono la prima riga
-sono la seconda riga
-e io sono la terza

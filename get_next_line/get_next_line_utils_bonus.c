@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 14:55:14 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/14 13:40:29 by cparadis         ###   ########.fr       */
+/*   Created: 2025/01/14 14:06:56 by cparadis          #+#    #+#             */
+/*   Updated: 2025/01/14 15:08:41 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	gnl_strlen(const char *s)
 {

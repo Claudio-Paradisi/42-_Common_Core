@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/05 11:55:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/14 12:37:56 by cparadis         ###   ########.fr       */
+/*   Created: 2025/01/14 14:06:29 by cparadis          #+#    #+#             */
+/*   Updated: 2025/01/14 15:05:02 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	check_stash(char *stash, size_t *bsn_pos)
 {
@@ -106,41 +106,58 @@ char	*read_text(char *stash, char *line, size_t bsn_pos, int fd)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	stash[BUFFER_SIZE + 1];
+	static char	stash[1024][BUFFER_SIZE + 1];
 	size_t		bsn_pos;
 
 	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	bsn_pos = 0;
 	line = NULL;
-	if (check_stash(stash, &bsn_pos))
+	if (check_stash(*stash, &bsn_pos))
 	{
-		line = join_stash(line, stash, FALSE, bsn_pos);
+		line = join_stash(line, *stash, FALSE, bsn_pos);
 		return (line);
 	}
-	line = gnl_strndup(stash, gnl_strlen(stash));
+	line = gnl_strndup(*stash, gnl_strlen(*stash));
 	if (!line)
 		return (NULL);
-	stash[0] = '\0';
-	line = read_text(stash, line, bsn_pos, fd);
+	*stash[0] = '\0';
+	line = read_text(*stash, line, bsn_pos, fd);
 	return (line);
 }
 
-/*int main()
+/*int     main(void)
 {
-    int fd = open("testo2.txt", O_RDONLY);
-    //int fd = 42;
-    char *row;
-    int i = 1;
-    
-    while ((row = get_next_line(fd)) != NULL)
-    {
-        printf("%d chiamata: %s",i, row);
-    	free(row); 
-		i++;
-	}        
-	printf("\n%d chiamata supplementare: %s\n",i, row);
-	printf("%d chiamata supplementare: %s",++i, row);
-    close(fd); 
-    return (0); 
+        int fd;
+        int fd_2;
+        char *line;
+        char *line2;
+        int count = 1;
+
+        fd = open("testo.txt", O_RDONLY);
+        fd_2 = open("testo2.txt", O_RDONLY);
+        if (fd < 0)
+        {
+                perror("Errore apertura file");
+                return (1);
+        }
+
+        while (1)
+        {
+                line2 = get_next_line(fd_2);
+                line = get_next_line(fd);
+                if (line)
+                        printf("%d) %s", count, line);
+                if (line2)
+                        printf("%d) %s", count, line2);
+                free(line);
+                free(line2);
+                count++;
+                if (!line && !line2)
+                        break ;
+        }
+        //fd = open("file2.txt", O_RDONLY);
+        close(fd);
+        close(fd_2);
+        return (0);
 }*/
