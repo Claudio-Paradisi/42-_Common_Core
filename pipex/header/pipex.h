@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:19:50 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/03 14:26:03 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/03 17:43:13 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sys/wait.h>
 
 typedef struct s_pipex
 {
@@ -35,5 +36,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	**ft_split(const char *s, char c);
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlen(const char *str);
+void	first_child(t_pipex pipex, char **av, char **envp);
+void	second_child(t_pipex pipex, char **av, char **envp);
 
 #endif
