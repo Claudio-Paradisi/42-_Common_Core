@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:31:58 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/03 18:56:00 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:01:01 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,61 +22,68 @@ static char 	*find_path(char **envp)
 	}
 	return (NULL);
 }
+static void open_files(t_pipex *pipex, char **av)
+{
+    pipex->infile = open(av[1], O_RDONLY);
+    if (pipex->infile < 0)
+		msg_error(0);
+	pipex->outfile = open(av[pipex->cmd_count + 2], O_TRUNC | O_CREAT | O_RDWR, 0644);
+    if (pipex->outfile < 0)
+		msg_error(1);
+}
+
+static void	processing(t_pipex *pipex, char **envp)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	init_pipes(pipex);
+	while (i < pipex->cmd_count)
+	{
+		pipex->pid = fork();
+		if (pipex->pid == 0)
+			execute_child(pipex, envp, i++);
+	}
+	free_pipes(&pipex);
+	while (j < pipex->cmd_count)
+	{
+		wait(NULL);
+		j++;
+	}
+}
 
 int		main(int ac, char **av, char **envp)
 {
 	t_pipex pipex;
 	int		i;
 
+	i = -1;
+	if (ac < 5)
+		msg_error(2);
+	pipex.cmd_count = ac - 3;
+	open_files(&pipex, av);
+	pipex.path = find_path(envp);
+	pipex.cmd_paths = ft_split(pipex.path, ':');
+	pipex.cmd_args = malloc(sizeof(char **) * (pipex.cmd_count));
+	while (++i < pipex.cmd_count)
+		pipex.cmd_args[i] = ft_split(av[i + 2], ' ');
+	processing(&pipex, envp);
+	free_matrix(pipex.cmd_paths);
+	free_matrix(*pipex.cmd_args);
+	free(pipex.cmd_args);
+	/*i = 0;
+	init_pipes(&pipex);
+	while (i < pipex.cmd_count)
+	{
+		pipex.pid = fork();
+		if (pipex.pid == 0)
+			execute_child(&pipex, envp, i++);
+	}
+	free_pipes(&pipex);
 	i = 0;
-	if (ac != 5)
-	{
-		perror("too many or too few arguments ¯\\_(ツ)_/¯\n");
-		return(1);
-	}
-	else
-	{
-		pipex.infile = open(av[1], O_RDONLY);
-		if (pipex.infile < 0)
-		{
-			perror("Error in opening the input file ¯\\_(ツ)_/¯\n");
-			return (1);
-		}
-		//pipex.outfile = open(av[ac-1], O_TRUNC | O_CREAT | O_RDWR, 0000644);
-		pipex.outfile = open(av[ac - 1], O_CREAT | O_WRONLY | O_TRUNC, 0644);
-		if (pipex.outfile < 0)
-		{
-			perror("Error in opening the output file ¯\\_(ツ)_/¯\n");
-			return (1);
-		}
-		if (pipe(pipex.pipe_fd) < 0)
-		{
-			perror("Error opening pipe");
-			return (2);
-		}
-		pipex.path = find_path(envp);
-		pipex.cmd_paths = ft_split(pipex.path, ':');
-		pipex.pid1 = fork();
-		if (pipex.pid1 == 0)
-			first_child(pipex, av, envp);
-		pipex.pid2 = fork();
-		if (pipex.pid2 == 0)
-		{
-			printf("sono entrato nel secondo figlio");
-			second_child(pipex, av, envp);
-		}
-		close(pipex.pipe_fd[0]);
-		close(pipex.pipe_fd[1]);
-		waitpid(pipex.pid1, NULL, 0);
-		waitpid(pipex.pid2, NULL, 0);
-		close(pipex.infile);
-		close(pipex.outfile);
-		while (pipex.cmd_paths[i])
-		{
-			free(pipex.cmd_paths[i]);
-			i++;
-		}
-		free(pipex.cmd_paths);
-	}
+	while (i++ < pipex.cmd_count)
+		wait(NULL);*/
 	return (0);
 }

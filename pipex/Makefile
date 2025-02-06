@@ -6,7 +6,7 @@
 #    By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:27:37 by cparadis          #+#    #+#              #
-#    Updated: 2025/02/03 17:09:59 by cparadis         ###   ########.fr        #
+#    Updated: 2025/02/06 16:01:01 by cparadis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = pipex.c utils/ft_split.c utils/ft_strncmp.c utils/ft_strjoin.c \
-		utils/ft_strlen.c src/children.c
+		utils/ft_strlen.c utils/free_matrix src/children.c src/errors.c \
+		src/pipes.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
