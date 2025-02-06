@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:18:13 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/06 15:52:52 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:13:35 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void    msg_error(int num)
     else if (num == 4)
         perror("Error in creating the pipe ¯\\_(ツ)_/¯\n");
     else if (num == 5)
-        perror("Error opening outfilefile ¯\\_(ツ)_/¯\n");
+        perror("Error creating the child ¯\\_(ツ)_/¯\n");
     else if (num == 6)
         perror("Error opening outfilefile ¯\\_(ツ)_/¯\n");
-    exit(1);
+    exit(EXIT_FAILURE);
 }

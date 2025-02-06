@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:31:49 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/06 15:52:52 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:38:52 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	execute_child(t_pipex *pipex, int i, char **envp)
 	else
 		dup2(pipex->pipes[i][1], STDOUT_FILENO);
 	free_pipes(pipex);
-	pipex->cmd = join_cmd_path(pipex->cmd_paths, pipex->cmd_args[0]);
+	pipex->cmd = join_cmd_path(pipex->cmd_paths, pipex->cmd_args[i][0]);
 	if (!pipex->cmd)
 		msg_error(3);
-	execve(pipex->cmd, pipex->cmd_args, envp);
+	execve(pipex->cmd, pipex->cmd_args[i], envp);
 	msg_error(4);
 }
