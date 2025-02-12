@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:31:49 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/06 16:38:52 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:51:23 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,21 @@
 static char		*join_cmd_path(char **cmd_paths, char *cmd)
 {
 	char	*temp;
-	char	*buffer;
+	char	*full_cmd;
 
+	if (!cmd || !cmd_paths) // Verifica se cmd è NULL
+		return (NULL);
 	while (*cmd_paths)
 	{
 		temp = ft_strjoin(*cmd_paths, "/");
-		buffer = ft_strjoin(temp, cmd);
+		full_cmd = ft_strjoin(temp, cmd);
 		free(temp);
-		if (access(buffer, 0) == 0)
-			return (buffer);
-		free(buffer);
+		printf("Executing command: %s\n", *cmd_paths);
+		if (!full_cmd)
+			return (NULL);
+		if (access(full_cmd, 0) == 0)
+			return (full_cmd);
+		free(full_cmd);
 		cmd_paths++;
 	}
 	return (NULL);
@@ -43,7 +48,14 @@ void	execute_child(t_pipex *pipex, int i, char **envp)
 	free_pipes(pipex);
 	pipex->cmd = join_cmd_path(pipex->cmd_paths, pipex->cmd_args[i][0]);
 	if (!pipex->cmd)
+	{
+		cleanup_pipex(pipex, 1);
 		msg_error(3);
+	}
 	execve(pipex->cmd, pipex->cmd_args[i], envp);
-	msg_error(4);
+	/*free(pipex->cmd);
+	free_matrix(pipex->cmd_paths);
+	free_array_of_matrix(pipex->cmd_args);
+	msg_error(4);*/
+	cleanup_pipex(pipex, 1);
 }

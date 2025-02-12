@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:06:17 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/03 13:32:28 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/09 20:02:46 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,52 @@ static char	*char_skipper(char *s, char c, char x)
 	return (s);
 }
 
-char	**ft_split(const char *s, char c)
+static void 	splitting(size_t words, const char *s, char c, char **phrase)
 {
-	char	*start;
 	int		i;
 	int		k;
-	char	**phrase;
-	size_t	words;
+	char 	*start;
 
-	words = count_words(s, c);
 	i = 0;
-	phrase = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!phrase)
-		return (0);
 	while (words-- > 0)
 	{
 		k = 0;
 		s = char_skipper((char *)s, c, '=');
 		start = (char *)s;
 		s = char_skipper((char *)s, c, '!');
-		phrase[i] = (char *)malloc(sizeof(char) * ((s - start) + 1));
+		phrase[i] = ft_calloc((s - start) + 1, sizeof(char));
+		if (!phrase[i])
+		{
+			free_matrix(phrase);
+			phrase = (NULL);
+			return ;
+		}
 		while (start < s)
 			phrase[i][k++] = *start++;
 		phrase[i++][k] = '\0';
 	}
 	phrase[i] = NULL;
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**phrase;
+	size_t	words;
+
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	 if (words == 0)  // Aggiungi questo controllo
+    {
+        phrase = ft_calloc(1, sizeof(char *));
+        if (!phrase)
+            return (NULL);
+        phrase[0] = NULL;
+        return (phrase);
+    }
+	phrase = ft_calloc(words + 1, sizeof(char *));
+	if (!phrase)
+		return (NULL);
+	splitting(words, s, c, phrase);
 	return (phrase);
 }

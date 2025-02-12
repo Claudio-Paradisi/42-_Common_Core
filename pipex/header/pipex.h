@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:19:50 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/06 17:35:22 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:37:34 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,11 @@ char	**ft_split(const char *s, char c);
 char	*ft_strjoin(const char *s1, const char *s2);
 size_t	ft_strlen(const char *str);
 void    free_matrix(char **matrix);
+void    free_array_of_matrix(char ***a_matrix);
 void    *ft_calloc(size_t nmemb, size_t size);
 void	execute_child(t_pipex *pipex, int i, char **envp);
 void    msg_error(int num);
+void    cleanup_pipex(t_pipex *pipex, int check);
 void    init_pipes(t_pipex *pipex);
 void    free_pipes(t_pipex *pipex);
 

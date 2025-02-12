@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:29:35 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/06 17:04:10 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/10 11:45:41 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,22 @@ void    init_pipes(t_pipex *pipex)
 
 void    free_pipes(t_pipex *pipex)
 {
-    int     i;
+    int i;
 
-    if(!pipex->pipes)
-        return ;
+    if (!pipex->pipes)
+        return;
     i = 0;
     while (i < pipex->cmd_count - 1)
     {
-        close(pipex->pipes[i][0]);
-        close(pipex->pipes[i][1]);
-        free(pipex->pipes[i]);
+        if (pipex->pipes[i])  // controlla se il puntatore è valido
+        {
+            close(pipex->pipes[i][0]);
+            close(pipex->pipes[i][1]);
+            free(pipex->pipes[i]);
+            pipex->pipes[i] = NULL;  // imposta a NULL dopo aver liberato
+        }
         i++;
     }
     free(pipex->pipes);
+    pipex->pipes = NULL;  // imposta a NULL dopo aver liberato
 }
