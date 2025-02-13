@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:06:17 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/09 20:02:46 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/12 11:14:33 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	words = count_words(s, c);
-	 if (words == 0)  // Aggiungi questo controllo
+	 if (words == 0)
     {
         phrase = ft_calloc(1, sizeof(char *));
         if (!phrase)

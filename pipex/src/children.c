@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 16:31:49 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/10 17:51:23 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:23:08 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char		*join_cmd_path(char **cmd_paths, char *cmd)
 	char	*temp;
 	char	*full_cmd;
 
-	if (!cmd || !cmd_paths) // Verifica se cmd è NULL
+	if (!cmd || !cmd_paths)
 		return (NULL);
 	while (*cmd_paths)
 	{
@@ -48,14 +48,7 @@ void	execute_child(t_pipex *pipex, int i, char **envp)
 	free_pipes(pipex);
 	pipex->cmd = join_cmd_path(pipex->cmd_paths, pipex->cmd_args[i][0]);
 	if (!pipex->cmd)
-	{
-		cleanup_pipex(pipex, 1);
-		msg_error(3);
-	}
+		cleanup_pipex(pipex, 3);
 	execve(pipex->cmd, pipex->cmd_args[i], envp);
-	/*free(pipex->cmd);
-	free_matrix(pipex->cmd_paths);
-	free_array_of_matrix(pipex->cmd_args);
-	msg_error(4);*/
-	cleanup_pipex(pipex, 1);
+	cleanup_pipex(pipex, 6);
 }

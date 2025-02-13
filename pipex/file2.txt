@@ -1,0 +1,35 @@
+ciao$$$
+sono il file di inputExecuting command: /usr/local/sbin$$
+Executing command: /usr/local/bin$$
+Executing command: /usr/sbin$$
+Executing command: /usr/bin$$
+Executing command: /sbin$$
+Executing command: /bin$$
+Executing command: /usr/games$$
+Executing command: /usr/local/games$$
+Executing command: /snap/bin$$
+Executing command: /snap/bin$$
+Executing command: /usr/local/sbin$$
+Executing command: /usr/local/bin$$
+Executing command: /usr/sbin$$
+Executing command: /usr/bin$$
+Executing command: /sbin$$
+Executing command: /bin$$
+Executing command: /usr/games$$
+Executing command: /usr/local/games$$
+Executing command: /snap/bin$$
+Executing command: /snap/bin$$
+Executing command: /usr/local/sbin$$
+Executing command: /usr/local/bin$$
+Executing command: /usr/sbin$$
+Executing command: /usr/bin$$
+Executing command: /sbin$$
+Executing command: /bin$$
+Executing command: /usr/games$$
+Executing command: /usr/local/games$$
+Executing command: /snap/bin$$
+Executing command: /snap/bin$$
+fgjfckl$$$
+vgcgjcj$$$
+hgkuvv$$$
+hkchckc$$$
