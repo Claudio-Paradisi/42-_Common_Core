@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:44:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/20 18:55:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/20 20:29:04 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,11 @@ int		has_overflow(long nbr);
 void 	free_matrix(char **matrix);
 void 	free_list(t_list **list);
 void 	ft_error(t_list **a, char *str, int check, char **av);
+
+void	pa(t_list **a, t_list **b);
+void 	pb(t_list **b, t_list **a);
+void	sa(t_list **a);
+void 	sb(t_list **b);
+void 	ss(t_list **a, t_list **b);
 
 #endif

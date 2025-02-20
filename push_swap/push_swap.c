@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:57:51 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/20 18:56:39 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/20 19:06:26 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,14 @@ static void		init_list(t_list **a, char **av, int check)
 int		main(int ac, char **av)
 {
 	t_list *a;
-	//t_list *b;
+	t_list *b;
 
 	a = NULL;
-	//b = NULL;
-	ft_printf("inzio programma\n");
+	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (1);
 	if (ac == 2)
 	{
-		ft_printf("entro in if se 2 argomenti\n");
 		av = ft_split(av[1], ' ');
 		if (!av)
 		{
@@ -76,26 +74,11 @@ int		main(int ac, char **av)
 			ft_printf("error creating the matrix");
 			return (1);
 		}
-		ft_printf("se non esco il problema é in init\n");
 		init_list(&a, av, TRUE);
 		free_matrix(av);
-		ft_printf("esco da if\n");
 	}
 	else
-	{
-		ft_printf("entro in init\n");
-		init_list(&a, (av + 1),FALSE);
-		ft_printf("esco da init init\n");
-	}
-	ft_printf("%d\n", a->nbr);
-	//check it works
-	/*while (a)
-	{
-		ft_printf("%d\n", a->nbr);
-		a = a->next;
-	}
-	if (ac == 2)*/
-		
+		init_list(&a, (av + 1), FALSE, av);	
 	free_list(&a);
 	return (0);
 }
