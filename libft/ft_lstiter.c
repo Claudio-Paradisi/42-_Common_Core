@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:32:22 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/23 12:33:11 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:51:08 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+/ a function that while iterating a list
+/ it uses a function to each node
+*/
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:11:36 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/17 14:27:46 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:12:10 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" 
 
+/*
+/ a reproduction of the strlcat function
+*/
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;

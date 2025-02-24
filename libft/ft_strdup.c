@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:48:49 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/12 15:32:50 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:38:38 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+/	a function that duplicate a string with malloc
+*/
 char	*ft_strdup(const char *str)
 {
 	size_t		i;

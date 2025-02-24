@@ -3,13 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:25:30 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/17 15:38:09 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:42:18 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
+
+/*
+/ a reproduction of the isdigit function
+*/
 
 int	ft_isdigit(int c)
 {

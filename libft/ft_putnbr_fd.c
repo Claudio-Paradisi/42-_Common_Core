@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 14:28:35 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/23 14:28:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:02:28 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+/ a recursive function that allows you to write an integer into an fd
+*/
 void	ft_putnbr_fd(int n, int fd)
 {
 	if (n == -2147483648)

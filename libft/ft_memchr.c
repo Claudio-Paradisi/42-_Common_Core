@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 18:58:16 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/17 13:57:54 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:57:17 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+/ a reproduction of the memchr function
+*/
 void	*ft_memchr(const void *str, int c, size_t n)
 {
 	size_t			i;

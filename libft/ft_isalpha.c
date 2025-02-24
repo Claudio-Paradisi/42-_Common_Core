@@ -3,13 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 14:55:01 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/17 15:47:48 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:41:48 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
+
+/*
+/ a reproduction of the isalpha function
+*/
 
 int	ft_isalpha(int c)
 {

@@ -3,13 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:26:07 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/23 14:21:19 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:11:34 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
+/*
+/ a function that takes two strings and joins them
+*/
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {

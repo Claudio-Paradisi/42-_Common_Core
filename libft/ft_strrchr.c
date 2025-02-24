@@ -3,13 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 16:53:31 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/17 15:01:35 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:18:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+/ a reproduction of the strrchr function
+*/
 #include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)

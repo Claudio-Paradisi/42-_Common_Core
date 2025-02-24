@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:06:17 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/18 19:12:38 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:08:21 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+/ a function that creates an array of strings from a string
+/ based to a char delimiter
+*/
+/*
+/ a function that returns the number of strings the matrix will have
+*/
 static size_t	count_words(char const *s, char c)
 {
 	size_t	count;
@@ -30,7 +37,10 @@ static size_t	count_words(char const *s, char c)
 	}
 	return (count);
 }
-
+/*
+/ a function that will be called twice, once it will skip the delimiter and once
+/ it will skip any other chars 
+*/
 static char	*char_skipper(char *s, char c, char x)
 {
 	if (x == '=')
@@ -45,7 +55,9 @@ static char	*char_skipper(char *s, char c, char x)
 	}
 	return (s);
 }
-
+/*
+/ the main function where the string is converted in a matrix
+*/
 char	**ft_split(const char *s, char c)
 {
 	char	*start;
