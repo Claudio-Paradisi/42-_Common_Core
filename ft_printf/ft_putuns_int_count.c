@@ -6,12 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 11:45:50 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/29 15:09:18 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:08:58 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+/ this function prints an unsigned decimal number
+*/
 void	ft_putuns_int_count(unsigned int n, int *count)
 {
 	unsigned long long	nbr;

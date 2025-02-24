@@ -6,12 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 11:40:36 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/29 13:51:28 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:05:25 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+/ this function prints a decimal number
+*/
 void	ft_putint_count(int n, int *count)
 {
 	long long	nbr;

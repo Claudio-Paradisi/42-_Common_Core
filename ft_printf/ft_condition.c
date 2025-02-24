@@ -3,15 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_condition.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cparadis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 15:07:42 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/29 15:07:55 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:01:52 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+/ based on the char we have we call a specific function that will print
+/ a specific data
+*/
 void	ft_condition(const char c, int *count, va_list args)
 {
 	if (c == 'c')

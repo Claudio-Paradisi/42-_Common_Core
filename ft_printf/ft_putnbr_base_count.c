@@ -6,11 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 11:40:42 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/09 17:50:47 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:07:14 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+/ this recursive function allows us to print any kind of base number byte per byte
+*/
 
 void	ft_putnbr_base_count(unsigned long long n, char *base, int *count)
 {

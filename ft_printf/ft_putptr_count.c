@@ -6,12 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 12:19:34 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/29 13:51:28 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:07:53 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+/ this function prints a memory address
+*/
 void    ft_putptr_count(void *ptr, int  *count)
 {
     unsigned long long nbr;

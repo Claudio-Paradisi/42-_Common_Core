@@ -6,12 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 11:40:46 by cparadis          #+#    #+#             */
-/*   Updated: 2024/12/31 14:10:14 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:08:28 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+/ this function prints a string
+*/
 void	ft_putstr_count(const char *str, int *count)
 {
 	if (!str)
