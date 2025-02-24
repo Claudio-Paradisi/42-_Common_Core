@@ -6,12 +6,16 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 14:06:29 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/14 15:05:02 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:39:44 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
+/*
+/ in the bouns we have to read from more then one fd, for how I worked
+/ the only change needed was to declare stash as a matrix
+*/
 int	check_stash(char *stash, size_t *bsn_pos)
 {
 	size_t	i;

@@ -6,12 +6,19 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 14:55:14 by cparadis          #+#    #+#             */
-/*   Updated: 2025/01/14 13:40:29 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:00:16 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+/*
+/ this file contains functions that will help our main function to work
+*/
+
+/*
+/ similar to ft_strlen but if the *s is NULL it will return 0
+*/
 size_t	gnl_strlen(const char *s)
 {
 	size_t	count;
@@ -27,6 +34,9 @@ size_t	gnl_strlen(const char *s)
 	return (count);
 }
 
+/*
+/ similar to ft_strndup but if the *str is NULL it will return: "" 
+*/
 char	*gnl_strndup(char *str, size_t size)
 {
 	size_t		i;
@@ -45,6 +55,9 @@ char	*gnl_strndup(char *str, size_t size)
 	return (dup);
 }
 
+/*
+/ similar to ft_strjoin but here we free the first string in input
+*/
 char	*gnl_strjoin(char *s1, char *s2)
 {
 	char		*line;
@@ -73,6 +86,10 @@ char	*gnl_strjoin(char *s1, char *s2)
 	return (line);
 }
 
+/*
+/ this function is needed to respect the 25 lines per function rule
+/ it simply frees the string and retuns null
+*/
 char	*gnl_free_line(char *line)
 {
 	free(line);
