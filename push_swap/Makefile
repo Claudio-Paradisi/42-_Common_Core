@@ -6,7 +6,7 @@
 #    By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:27:37 by cparadis          #+#    #+#              #
-#    Updated: 2025/02/20 20:29:23 by cparadis         ###   ########.fr        #
+#    Updated: 2025/02/25 16:44:33 by cparadis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ ft_printf/ft_putstr_count.c ft_printf/ft_putuns_int_count.c ft_printf/ft_strlen.
 utils/ft_split.c utils/ft_lstsize.c utils/ft_lstlast.c utils/ft_atol.c utils/ft_is.c \
 utils/ft_calloc.c \
 errors/error.c errors/free.c \
-commands/push.c commands/swap.c
+commands/push.c commands/swap.c commands/rotate.c commands/reverse_rotate.c \
+
 
 OBJECTS = $(SOURCES:.c=.o)
 

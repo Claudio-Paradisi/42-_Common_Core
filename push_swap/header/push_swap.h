@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:44:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/20 20:29:04 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:43:43 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,11 @@ void 	pb(t_list **b, t_list **a);
 void	sa(t_list **a);
 void 	sb(t_list **b);
 void 	ss(t_list **a, t_list **b);
+void	ra(t_list **a);
+void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
 
 #endif
