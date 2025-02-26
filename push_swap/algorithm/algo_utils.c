@@ -1,45 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 15:58:09 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 12:25:38 by cparadis         ###   ########.fr       */
+/*   Created: 2025/02/26 13:47:47 by cparadis          #+#    #+#             */
+/*   Updated: 2025/02/26 14:02:43 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	free_matrix(char **matrix)
+t_list *max_node(t_list **list)
 {
-	int	i;
+    t_list *max;
+    t_list *temp;
 
-	i = 0;
-	if (!matrix)
-		return ;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
-}
-
-void	free_list(t_list **list)
-{
-	t_list *temp;
-	t_list *current;
-
-	if (!list || !*list)
-		return ;
-	current = *list;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*list = NULL;
+    temp = *list;
+    max = ft_lstlast(temp);
+    while (temp)
+    {
+        if (max->nbr < temp->nbr)
+            max = temp;
+        temp = temp->next;
+    }
+    return (max);
 }

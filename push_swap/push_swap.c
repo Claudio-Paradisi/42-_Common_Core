@@ -6,17 +6,17 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:57:51 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/20 19:06:26 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:55:38 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/push_swap.h"
 
-static void 	fill_node(t_list **a, int nbr)
+static void	fill_node(t_list **a, int nbr)
 {
-	t_list *node;
-	t_list *last_node;
-	
+	t_list	*node;
+	t_list	*last_node;
+
 	if (!a)
 		return ;
 	node = malloc(sizeof(t_list));
@@ -38,11 +38,11 @@ static void 	fill_node(t_list **a, int nbr)
 	}
 }
 
-static void		init_list(t_list **a, char **av, int check)
+static void	init_list(t_list **a, char **av, int check)
 {
 	long	nbr;
 	int		i;
-	
+
 	i = 0;
 	while (av[i])
 	{
@@ -56,13 +56,23 @@ static void		init_list(t_list **a, char **av, int check)
 	}
 }
 
-int		main(int ac, char **av)
+static void	algorithm(t_list **a /*, t_list **b*/)
+{
+	if (is_sorted(a))
+		return ;
+	if (ft_lstsize(*a) == 2)
+		sort_two(a);
+	else if (ft_lstsize(*a) == 3)
+		sort_three(a);
+}
+
+int	main(int ac, char **av)
 {
 	t_list *a;
-	t_list *b;
+	//t_list *b;
 
 	a = NULL;
-	b = NULL;
+	//b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (1);
 	if (ac == 2)
@@ -78,7 +88,8 @@ int		main(int ac, char **av)
 		free_matrix(av);
 	}
 	else
-		init_list(&a, (av + 1), FALSE, av);	
+		init_list(&a, (av + 1), FALSE);
+	algorithm(&a);
 	free_list(&a);
 	return (0);
 }

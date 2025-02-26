@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:06:17 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/20 15:59:31 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:25:38 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ static char	*char_skipper(char *s, char c, char x)
 	return (s);
 }
 
-static void 	splitting(size_t words, const char *s, char c, char **phrase)
+static void	splitting(size_t words, const char *s, char c, char **phrase)
 {
 	int		i;
 	int		k;
-	char 	*start;
+	char	*start;
 
 	i = 0;
 	while (words-- > 0)
@@ -81,14 +81,14 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	words = count_words(s, c);
-	 if (words == 0)
-    {
-        phrase = ft_calloc(1, sizeof(char *));
-        if (!phrase)
-            return (NULL);
-        phrase[0] = NULL;
-        return (phrase);
-    }
+	if (words == 0)
+	{
+		phrase = ft_calloc(1, sizeof(char *));
+		if (!phrase)
+			return (NULL);
+		phrase[0] = NULL;
+		return (phrase);
+	}
 	phrase = ft_calloc(words + 1, sizeof(char *));
 	if (!phrase)
 		return (NULL);

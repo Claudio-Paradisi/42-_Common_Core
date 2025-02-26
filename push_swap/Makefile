@@ -6,7 +6,7 @@
 #    By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:27:37 by cparadis          #+#    #+#              #
-#    Updated: 2025/02/25 16:44:33 by cparadis         ###   ########.fr        #
+#    Updated: 2025/02/26 14:56:55 by cparadis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ utils/ft_split.c utils/ft_lstsize.c utils/ft_lstlast.c utils/ft_atol.c utils/ft_
 utils/ft_calloc.c \
 errors/error.c errors/free.c \
 commands/push.c commands/swap.c commands/rotate.c commands/reverse_rotate.c \
+algorithm/algo_checks.c algorithm/algo_utils.c algorithm/simple_algo.c \
 
 
 OBJECTS = $(SOURCES:.c=.o)

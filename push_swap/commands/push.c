@@ -6,16 +6,16 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 19:11:04 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/20 19:24:32 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:56:08 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-static void 	push(t_list **dest, t_list **src)
+static void	push(t_list **dest, t_list **src)
 {
-	t_list 	*node_to_push;
-	
+	t_list	*node_to_push;
+
 	if (!*src)
 		return ;
 	node_to_push = *src;
@@ -26,9 +26,9 @@ static void 	push(t_list **dest, t_list **src)
 	if (!*dest)
 	{
 		*dest = node_to_push;
-		node_to_push->nest = NULL;
+		node_to_push->next = NULL;
 	}
-	else 
+	else
 	{
 		node_to_push->next = *dest;
 		node_to_push->next->prev = node_to_push;
@@ -42,7 +42,7 @@ void	pa(t_list **a, t_list **b)
 	ft_printf("pa\n");
 }
 
-void 	pb(t_list **b, t_list **a)
+void	pb(t_list **b, t_list **a)
 {
 	push(b, a);
 	ft_printf("pb\n");

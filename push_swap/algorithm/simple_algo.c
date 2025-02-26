@@ -1,45 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   simple_algo.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 15:58:09 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 12:25:38 by cparadis         ###   ########.fr       */
+/*   Created: 2025/02/26 12:49:55 by cparadis          #+#    #+#             */
+/*   Updated: 2025/02/26 14:43:47 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/push_swap.h"
 
-void	free_matrix(char **matrix)
+void	sort_two(t_list **a)
 {
-	int	i;
-
-	i = 0;
-	if (!matrix)
-		return ;
-	while (matrix[i])
-	{
-		free(matrix[i]);
-		i++;
-	}
-	free(matrix);
+	sa(a);
 }
 
-void	free_list(t_list **list)
+void    sort_three(t_list **a)
 {
-	t_list *temp;
-	t_list *current;
+    t_list *biggest_node;
 
-	if (!list || !*list)
-		return ;
-	current = *list;
-	while (current)
-	{
-		temp = current->next;
-		free(current);
-		current = temp;
-	}
-	*list = NULL;
+    biggest_node = max_node(a);
+    if (biggest_node->nbr == (*a)->nbr)
+        ra(a);
+    else if (biggest_node->nbr == (*a)->next->nbr)
+        rra(a);
+    if ((*a)->nbr > (*a)->next->nbr)
+        sa(a);    
 }
