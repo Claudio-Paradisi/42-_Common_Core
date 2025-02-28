@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:49:55 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 14:43:47 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:03:11 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    sort_three(t_list **a)
 {
     t_list *biggest_node;
 
-    biggest_node = max_node(a);
+    biggest_node = get_max_node(a);
     if (biggest_node->nbr == (*a)->nbr)
         ra(a);
     else if (biggest_node->nbr == (*a)->next->nbr)
