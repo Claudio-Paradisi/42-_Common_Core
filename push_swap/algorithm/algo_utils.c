@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:47:47 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 14:02:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:42:54 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,25 @@ t_list *max_node(t_list **list)
         temp = temp->next;
     }
     return (max);
+}
+
+void    set_current_index(t_list *list)
+{
+    int i;
+    int half;
+
+    if (!list)
+        return ;
+    i = 0;
+    half = ft_lstsize(a) / 2;
+    while (list)
+    {
+        list->index = i;
+        if (list->index <= half)
+            list->above_median = TRUE;
+        else
+            list->above_median = FALSE;
+        list = list->next;
+        i++;
+    }
 }

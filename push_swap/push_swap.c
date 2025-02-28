@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:57:51 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 14:55:38 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:05:32 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	init_list(t_list **a, char **av, int check)
 	}
 }
 
-static void	algorithm(t_list **a /*, t_list **b*/)
+static void	algorithm(t_list **a, t_list **b)
 {
 	if (is_sorted(a))
 		return ;
@@ -64,15 +64,17 @@ static void	algorithm(t_list **a /*, t_list **b*/)
 		sort_two(a);
 	else if (ft_lstsize(*a) == 3)
 		sort_three(a);
+	else
+		turk_sort(a, b);
 }
 
 int	main(int ac, char **av)
 {
 	t_list *a;
-	//t_list *b;
+	t_list *b;
 
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (1);
 	if (ac == 2)
@@ -89,7 +91,7 @@ int	main(int ac, char **av)
 	}
 	else
 		init_list(&a, (av + 1), FALSE);
-	algorithm(&a);
+	algorithm(&a, &b);
 	free_list(&a);
 	return (0);
 }

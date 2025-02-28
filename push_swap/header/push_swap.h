@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:44:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 14:02:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:43:54 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void				rrr(t_list **a, t_list **b);
 
 int					is_sorted(t_list **list);
 t_list				*max_node(t_list **list);
+void				set_current_index(t_list *list);
 void				sort_two(t_list **a);
 void				sort_three(t_list **a);
 #endif
