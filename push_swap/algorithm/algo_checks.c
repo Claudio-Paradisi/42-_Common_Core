@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 12:21:24 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 14:32:06 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:46:02 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 int	is_sorted(t_list **list)
 {
-	t_list *i;
-    t_list *j;
+	t_list	*i;
+	t_list	*j;
 
 	i = *list;
 	while (i)
 	{
-        j = i->next;
-        while (j)
+		j = i->next;
+		while (j)
 		{
-            if (i->nbr > j->nbr)
-			    return (FALSE);
-		    j = j->next;
-        }
-        i = i->next;
+			if (i->nbr > j->nbr)
+				return (FALSE);
+			j = j->next;
+		}
+		i = i->next;
 	}
 	return (TRUE);
 }
@@ -55,7 +55,7 @@ void	ready_for_push(t_list **list, t_list *top_node, int check)
 
 void	set_min_on_top(t_list **a)
 {
-	t_list *min;
+	t_list	*min;
 
 	min = get_min_node(a);
 	while ((*a)->nbr != min->nbr)
@@ -65,5 +65,4 @@ void	set_min_on_top(t_list **a)
 		else
 			rra(a);
 	}
-	
 }

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:08:56 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 15:57:41 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:50:03 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,13 @@ static void	move_b_to_a(t_list **a, t_list **b)
 
 void	turk_algo(t_list **a, t_list **b)
 {
-	int len_a;
+	int	len_a;
 
 	len_a = ft_lstsize(*a);
 	if (len_a-- > 3 && !is_sorted(a))
 		pb(b, a);
 	if (len_a-- > 3 && !is_sorted(a))
 		pb(b, a);
-	
 	while (len_a-- > 3)
 	{
 		init_list_a(*a, *b);
@@ -72,5 +71,4 @@ void	turk_algo(t_list **a, t_list **b)
 	}
 	set_current_index(*a);
 	set_min_on_top(a);
-
 }

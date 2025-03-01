@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:47:47 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 13:50:11 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:48:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ t_list	*get_max_node(t_list **list)
 	return (max);
 }
 
-t_list *get_min_node(t_list **list)
+t_list	*get_min_node(t_list **list)
 {
-	t_list *min;
-	t_list *temp;
+	t_list	*min;
+	t_list	*temp;
 
 	temp = *list;
 	min = ft_lstlast(temp);
@@ -43,6 +43,7 @@ t_list *get_min_node(t_list **list)
 	}
 	return (min);
 }
+
 void	set_current_index(t_list *list)
 {
 	int	i;
@@ -66,8 +67,8 @@ void	set_current_index(t_list *list)
 
 void	set_cheapest(t_list *list)
 {
-	long cheapest_nbr;
-	t_list *cheapest_node;
+	long	cheapest_nbr;
+	t_list	*cheapest_node;
 
 	if (!list)
 		return ;
@@ -84,9 +85,9 @@ void	set_cheapest(t_list *list)
 	cheapest_node->cheapest = TRUE;
 }
 
-t_list *get_cheapest_node(t_list *list)
+t_list	*get_cheapest_node(t_list *list)
 {
-	t_list *cheapest_node;
+	t_list	*cheapest_node;
 
 	cheapest_node = NULL;
 	while (list)

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 11:25:36 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 12:03:17 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:43:41 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 long	ft_atol(char *str)
 {
-	long nbr;
-	int sign;
+	long	nbr;
+	int		sign;
 
 	nbr = 0;
 	sign = 1;

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:57:51 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 14:57:06 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:59:13 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ static void	algorithm(t_list **a, t_list **b)
 
 int	main(int ac, char **av)
 {
-	t_list *a;
-	t_list *b;
+	t_list	*a;
+	t_list	*b;
 
 	a = NULL;
 	b = NULL;

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:04:05 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 15:54:57 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:47:10 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static void	set_target_a(t_list *a, t_list *b)
 	}
 }
 
-static void set_target_b(t_list *a, t_list *b)
+static void	set_target_b(t_list *a, t_list *b)
 {
-	t_list *current_a;
-	t_list *target;
+	t_list	*current_a;
+	t_list	*target;
 	long	closer_big_nbr;
 
 	while (b)

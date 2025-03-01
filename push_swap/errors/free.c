@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:58:09 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/26 12:25:38 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 16:52:46 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	free_matrix(char **matrix)
 
 void	free_list(t_list **list)
 {
-	t_list *temp;
-	t_list *current;
+	t_list	*temp;
+	t_list	*current;
 
 	if (!list || !*list)
 		return ;
