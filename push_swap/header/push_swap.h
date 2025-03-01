@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:44:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/28 14:09:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:33:47 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,17 @@ void				rrb(t_list **b);
 void				rrr(t_list **a, t_list **b);
 
 int					is_sorted(t_list **list);
+void				ready_for_push(t_list **list, t_list *top_node, int check);
 t_list				*get_max_node(t_list **list);
-t_list 				*get_cheapest_node(t_list *list);
+t_list 				*get_min_node(t_list **list);
+t_list				*get_cheapest_node(t_list *list);
+void				set_min_on_top(t_list **a);
 void				set_current_index(t_list *list);
 void				set_cheapest(t_list *list);
 void				sort_two(t_list **a);
 void				sort_three(t_list **a);
 void				init_list_a(t_list *a, t_list *b);
+void				init_list_b(t_list *a, t_list *b);
+void				turk_algo(t_list **a, t_list **b);
 
 #endif

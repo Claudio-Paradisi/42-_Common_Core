@@ -6,7 +6,7 @@
 #    By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 14:27:37 by cparadis          #+#    #+#              #
-#    Updated: 2025/02/28 11:59:21 by cparadis         ###   ########.fr        #
+#    Updated: 2025/03/01 14:47:15 by cparadis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,23 +26,26 @@ utils/ft_calloc.c \
 errors/error.c errors/free.c \
 commands/push.c commands/swap.c commands/rotate.c commands/reverse_rotate.c \
 algorithm/algo_checks.c algorithm/algo_utils.c algorithm/simple_algo.c \
-algorithm/turk_algo.c algorithm/turk_algo.c 
+algorithm/turk_algo.c algorithm/turk_algo_utils.c 
 
 OBJECTS = $(SOURCES:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-				$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+				@$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
+				@printf "\n\033[1A\033[K"
+				@printf "$(NAME) compiled!\n"
 
 %.o: %.c
-				$(CC) $(CFLAGS) -c $< -o $@
+				@printf "\033; Generating $(NAME) objects... %-33.33s\r" $@
+				@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-				$(RM) $(OBJECTS)
+				@$(RM) $(OBJECTS)
 
 fclean: clean
-				$(RM) $(NAME)
+				@$(RM) $(NAME)
 				
 re: fclean all
 

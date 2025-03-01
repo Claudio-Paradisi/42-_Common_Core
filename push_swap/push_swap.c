@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:57:51 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/28 12:08:41 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:57:06 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	fill_node(t_list **a, int nbr)
 
 	if (!a)
 		return ;
-	node = malloc(sizeof(t_list));
+	node = ft_calloc(1, sizeof(t_list));
 	if (!node)
 		return ;
 	node->next = NULL;
@@ -65,7 +65,7 @@ static void	algorithm(t_list **a, t_list **b)
 	else if (ft_lstsize(*a) == 3)
 		sort_three(a);
 	else
-		turk_sort(a, b);
+		turk_algo(a, b);
 }
 
 int	main(int ac, char **av)

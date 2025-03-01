@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 13:47:47 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/28 14:09:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/01 13:50:11 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ t_list	*get_max_node(t_list **list)
 	return (max);
 }
 
+t_list *get_min_node(t_list **list)
+{
+	t_list *min;
+	t_list *temp;
+
+	temp = *list;
+	min = ft_lstlast(temp);
+	while (temp)
+	{
+		if (min->nbr > temp->nbr)
+			min = temp;
+		temp = temp->next;
+	}
+	return (min);
+}
 void	set_current_index(t_list *list)
 {
 	int	i;
