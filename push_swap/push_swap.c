@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:57:51 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 16:59:13 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:58:42 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,30 @@ static void	fill_node(t_list **a, int nbr)
 	}
 }
 
-static void	init_list(t_list **a, char **av, int check)
+static void handle_arguments(t_list **a, char *str)
+{
+	char **matrix;
+	long nbr;
+	int	i;
+
+	i = 0;
+	matrix = ft_split(str, ' ');
+	if (!matrix)
+		ft_error(a, "matrix creation failed", 1, matrix);
+	while (matrix[i])
+	{
+		if (syntax_error(matrix[i]))
+				ft_error(a, "Syntax error!", 1, matrix);
+		nbr = ft_atol(matrix[i]);
+		if (has_double(*a, nbr) || has_overflow(nbr))
+			ft_error(a, "Error! overflow or a double numbers!", 1, matrix);
+		fill_node(a, (int)nbr);
+		i++;
+	}
+	free_matrix(matrix);
+}
+
+static void	init_list(t_list **a, char **av)
 {
 	long	nbr;
 	int		i;
@@ -46,15 +69,21 @@ static void	init_list(t_list **a, char **av, int check)
 	i = 0;
 	while (av[i])
 	{
-		if (syntax_error(av[i]))
-			ft_error(a, "Syntax error!", check, av);
-		nbr = ft_atol(av[i]);
-		if (has_double(*a, nbr) || has_overflow(nbr))
-			ft_error(a, "Error! overflow or a double numbers!", check, av);
-		fill_node(a, (int)nbr);
+		if (ft_strchr(av[i], ' '))
+			handle_arguments(a, av[i]);
+		else
+		{
+			if (syntax_error(av[i]))
+				ft_error(a, "Syntax error!", 0, av);
+			nbr = ft_atol(av[i]);
+			if (has_double(*a, nbr) || has_overflow(nbr))
+				ft_error(a, "Error! overflow or a double numbers!", 0, av);
+			fill_node(a, (int)nbr);
+		}
 		i++;
 	}
 }
+
 
 static void	algorithm(t_list **a, t_list **b)
 {
@@ -77,21 +106,15 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (1);
-	if (ac == 2)
-	{
-		av = ft_split(av[1], ' ');
-		if (!av)
-		{
-			free_matrix(av);
-			ft_printf("error creating the matrix");
-			return (1);
-		}
-		init_list(&a, av, TRUE);
-		free_matrix(av);
-	}
-	else
-		init_list(&a, (av + 1), FALSE);
+	init_list(&a, (av + 1));
 	algorithm(&a, &b);
+	/*//prova visiva codice
+	t_list *temp = a;
+	while (temp)
+	{
+		ft_printf("%d\n", temp->nbr);
+		temp = temp->next;
+	}*/
 	free_list(&a);
 	return (0);
 }

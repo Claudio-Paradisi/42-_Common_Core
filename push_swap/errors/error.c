@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:04:54 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 16:52:19 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:03:46 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	syntax_error(char *str)
 {
 	if (!ft_isdigit(*str) && !ft_issign(*str))
 		return (TRUE);
-	if (ft_issign(*str) && !ft_isdigit(*str + 1))
+	if (ft_issign(*str) && !ft_isdigit(*(str + 1)))
 		return (TRUE);
 	str++;
 	while (*str)

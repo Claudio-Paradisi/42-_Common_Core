@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:44:34 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/01 16:59:50 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:58:08 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int					ft_issign(int c);
 int					ft_isdigit(int c);
 int					ft_isspace(int c);
 long				ft_atol(char *str);
+char				*ft_strchr(const char *str, int c);
 
 int					syntax_error(char *str);
 int					has_double(t_list *a, long nbr);
