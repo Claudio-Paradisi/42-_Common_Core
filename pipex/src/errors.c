@@ -6,12 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:18:13 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/13 18:21:05 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:26:43 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/pipex.h"
-
+/*
+/ this is the function that handle errors
+/ if the program calls it it will also end th process
+*/
 void    msg_error(int num)
 {
     if (num == 0)
@@ -31,6 +34,9 @@ void    msg_error(int num)
     exit(127);
 }
 
+/*
+/ this is the function that frees our struct
+*/
 void    cleanup_pipex(t_pipex *pipex, int check)
 {
     if (pipex->cmd_paths)

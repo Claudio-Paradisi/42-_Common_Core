@@ -6,11 +6,17 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:31:58 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/13 18:43:33 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/03 12:01:06 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/pipex.h"
+
+/*
+/ here_doc emulate this command line: << LIMITER cmd | cmd >> outfile
+/ we have to take the input from the STDIN so long we don't find 
+/ a line with the LIMITER (the limiter rapresents the EOF) 
+*/
 
 static char 	*find_hd_path(char **envp)
 {
@@ -22,8 +28,15 @@ static char 	*find_hd_path(char **envp)
 	}
 	return (NULL);
 }
+
+/*
+/ this time if the infile retruns -1 we have to exit the program
+*/
 static void		open_hd_files(t_pipex *pipex, char **av, int ac)
 {
+	/*
+	/ the infile is a temporary file we have to create
+	*/
     pipex->infile = create_hd_infile(av[2]);
     if (pipex->infile < 0)
 		msg_error(0);
@@ -72,6 +85,10 @@ static t_pipex		init_hd_pipex(int ac, char **av, char **envp, int i)
 	pipex.cmd_args = ft_calloc(pipex.cmd_count + 1, sizeof(char **));
 	if (!pipex.cmd_paths || !pipex.cmd_args)
         cleanup_pipex(&pipex, 6);
+	/*
+	/ this is the only difference between the normal init_pipex
+	/ we got 1 more argument to avoid in the cmd_args so we split i + 3
+	*/
 	while (++i < pipex.cmd_count)
         	pipex.cmd_args[i] = ft_split(av[i + 3], ' ');
 	return (pipex);
@@ -90,5 +107,9 @@ void		here_doc(t_pipex *pipex, int ac, char **av, char **envp)
     	close(pipex->outfile);
 	free_matrix(pipex->cmd_paths);
 	free_array_of_matrix(pipex->cmd_args);
-	//unlink("here_doc");
+	/*
+	/ when we use here_doc we create temporary infile that we have to 
+	/ delete once the program ends
+	*/
+	unlink("here_doc_temp");
 }

@@ -6,12 +6,15 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:29:35 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/12 11:15:33 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:25:15 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/pipex.h"
 
+/*
+/ in this function we initialize our pipes
+*/
 void    init_pipes(t_pipex *pipex)
 {
     int     i;
@@ -19,6 +22,10 @@ void    init_pipes(t_pipex *pipex)
     if (pipex->cmd_count < 2)
         return ;
     i = 0;
+    /*
+    / since we handle multiple pipes our struct argument that stores
+    / the fds has to be a pointer to int 
+    */
     pipex->pipes = malloc(sizeof(int *) * (pipex->cmd_count - 1));
     if (!pipex->pipes)
         msg_error(4);
@@ -32,7 +39,10 @@ void    init_pipes(t_pipex *pipex)
         i++;
     }
 }
-
+ /*
+ / in this function we free our stored pipes
+ / close the fds and we free the allocated memory
+ */
 void    free_pipes(t_pipex *pipex)
 {
     int i;
