@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/12 18:20:18 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/13 18:22:14 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,9 @@ typedef struct s_game
 
 
 void	*ft_calloc(size_t nmemb, size_t size);
+int crate_trgb(int t, int red, int green, int blue);
+int get_trgb(int trgb, char color);
+int add_shade(double distance, int color);
+int get_opposite(int color);
 
 #endif

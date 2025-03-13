@@ -4,7 +4,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = so_long.c \
-utils/ft_calloc.c \
+utils/ft_calloc.c color.c \
 
 
 OBJECTS = $(SOURCES:.c=.o)
