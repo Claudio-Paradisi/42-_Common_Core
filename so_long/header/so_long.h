@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/13 18:22:14 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:55:09 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "../minilibx-linux/mlx.h"
-#include "../minilibx-linux/mlx_int.h"
+#include "../includes/minilibx-linux/mlx.h"
+#include "../includes/minilibx-linux/mlx_int.h"
+# include "../includes/libft/libft.h"
+
+#define FALSE 0
+#define TRUE 1
 
 typedef struct s_my_img
 {
@@ -42,4 +46,8 @@ int get_trgb(int trgb, char color);
 int add_shade(double distance, int color);
 int get_opposite(int color);
 
+char **read_map(char *file);
+int is_rectangle(char **map);
+int is_enclosed(char **map);
+int has_everything(char **map);
 #endif

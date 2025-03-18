@@ -4,29 +4,36 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = so_long.c \
-utils/ft_calloc.c color.c \
+color.c \
+checks/map_check.c \
 
 
 OBJECTS = $(SOURCES:.c=.o)
 
-MLX_DIR = minilibx-linux
+MLX_DIR = includes/minilibx-linux
 MLX_LIB = $(MLX_DIR)/libmlx.a -L$(MLX_DIR) -lmlx -L/usr/X11/lib -lXext -lX11
 MLX_INC = -I$(MLX_DIR)
+
+LIBFT_DIR = includes/libft
+LIBFT_LIB = $(LIBFT_DIR)/libft.a
+LIBFT_INC = -I$(LIBFT_DIR)
 
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-			$(MAKE) -C $(MLX_DIR)
-			$(CC) $(CFLAGS) $(OBJECTS) $(MLX_LIB) -o $(NAME)
+			@$(MAKE) -C $(MLX_DIR)
+			@$(MAKE) -C $(LIBFT_DIR)
+			@$(CC) $(CFLAGS) $(OBJECTS) $(MLX_LIB) $(LIBFT_LIB) -o $(NAME)
 			@printf "\n\033[1A\033[K"
 			@printf "$(NAME) compiled!\n"
 
 %.o: %.c
 			@printf "\033; Generating $(NAME) objects... %-33.33s\r" $@
-			@$(CC) $(CFLAGS) -c $< -o $@
+			@$(CC) $(CFLAGS) $(LIBFT_INC) -c $< -o $@
 
 clean:
 			$(MAKE) -C $(MLX_DIR) clean
+			$(MAKE) -C $(LIBFT_DIR) clean
 			@$(RM) $(OBJECTS)
 			@printf "$(NAME) deleted!\n"
 

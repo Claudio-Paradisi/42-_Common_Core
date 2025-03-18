@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:47:48 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/13 18:26:18 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:00:05 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //da tenere chiude finestra e libera memoria
 int on_destroy(t_game *game)
 {
+	ft_printf("finestra chiusa");
 	mlx_destroy_image(game->mlx, game->img.img);
 	mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);
@@ -24,26 +25,32 @@ int on_destroy(t_game *game)
 	return (0);
 }
 
-//prova eventi
-int on_keypress(int keysym, t_game *game)
+/*int on_hide(t_game *game)
+{
+    (void)game;
+   	ft_strput("hai nascosto la finestra");
+    return (0);
+}
+
+int on_in(t_game *game)
 {
 	(void)game;
-	printf("Pressed key: %d\n", keysym);
+	ft_strput("you are inside the window");
 	return (0);
 }
 
-//da tenere? disegna pixel su immagine
-void draw_pixel(t_my_img *img, int x, int y, int color)
+//prova eventi
+int on_keypress(int key, t_game *game)
 {
-	char *dest;
-
-	dest = img->address + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dest = color;
+	//(void)game;
+	if (key == 65307)
+		on_destroy(game);
+	return (0);
 }
-
-int	main()
+*/
+int	main(int ac, char **av)
 {
-	t_game *game;
+	/*t_game *game;
 	
 	game = ft_calloc(1, sizeof(t_game));
 		game->mlx = mlx_init();
@@ -73,9 +80,26 @@ int	main()
 		}
 		mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
 		
-		mlx_hook(game->window, KeyRelease, KeyReleaseMask, &on_keypress, &game);
+		mlx_hook(game->window, KeyRelease, KeyReleaseMask, &on_keypress, game);
+		mlx_hook(game->window, EnterNotify, EnterWindowMask, &on_in ,game);
 		mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &on_destroy, game);
-		mlx_loop(game->mlx);
-	
+		mlx_hook(game->window, KeymapNotify, 1L<<17, &on_hide, game);
+		mlx_loop(game->mlx);*/
+	char **map;
+	int	i;
+
+	if (ac != 2)
+		return(ft_printf("argument number not valid!\n"));
+	map = read_map(av[1]);
+	if (!map)
+		return (1);
+	i = 0;
+	while (map[i])
+		ft_printf("%s\n", map[i++]);
+	i = 0;
+	ft_printf("has_everything: %d, is_rectangle: %d, is_enclosed: %d\n", has_everything(map), is_rectangle(map), is_enclosed(map));
+	while (map[i])
+		free(map[i++]);
+	free(map);
 	return (0);
 }
