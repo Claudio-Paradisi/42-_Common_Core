@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_floodfill.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 16:36:21 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/13 18:23:35 by cparadis         ###   ########.fr       */
+/*   Created: 2025/03/18 11:01:35 by cparadis          #+#    #+#             */
+/*   Updated: 2025/03/18 11:17:55 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/pipex.h"
-
-void	ft_putstr_fd(char *str, int fd)
+void    ft_floodfill(char **map, int x, int y)
 {
-	while (*str)
-		write(fd, str++, 1);
+    if (map[y][x] == '1' || map[y][x] == 'F')
+        return ;
+    map[y][x] = 'F';
+
+    ft_floodfill(map, x + 1, y);
+    ft_floodfill(map, x - 1, y);
+    ft_floodfill(map, x, y + 1);
+    ft_floodfill(map, x, y - 1);
 }

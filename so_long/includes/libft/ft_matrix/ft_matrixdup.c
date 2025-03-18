@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_matrixdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 11:19:28 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/03 13:32:02 by cparadis         ###   ########.fr       */
+/*   Created: 2025/03/18 11:10:07 by cparadis          #+#    #+#             */
+/*   Updated: 2025/03/18 11:52:02 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/pipex.h"
+#include "../libft.h"
 
-size_t	ft_strlen(const char *str)
+char    **ft_matrixdup(char ** matrix)
 {
-	int	count;
+    int i;
+    char **copy;
 
-	count = 0;
-	while (*str)
-	{
-		str++;
-		count++;
-	}
-	return (count);
+    if (!matrix)
+        return (NULL);
+    i = 0;
+    copy = ft_calloc(ft_matrixlen(matrix) + 1, sizeof(char *));
+    if (!copy)
+        return (NULL);
+    while (matrix[i])
+    {
+        copy[i] = ft_strdup(matrix[i]);
+        i++;
+    }
+    copy[i] = NULL;
+    return (copy);
 }

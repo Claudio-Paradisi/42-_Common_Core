@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/17 17:55:09 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:45:00 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,16 @@ typedef struct s_game
 }				t_game;
 
 
-void	*ft_calloc(size_t nmemb, size_t size);
-int crate_trgb(int t, int red, int green, int blue);
-int get_trgb(int trgb, char color);
-int add_shade(double distance, int color);
-int get_opposite(int color);
+void		*ft_calloc(size_t nmemb, size_t size);
+int			crate_trgb(int t, int red, int green, int blue);
+int 		get_trgb(int trgb, char color);
+int			add_shade(double distance, int color);
+int			get_opposite(int color);
 
-char **read_map(char *file);
-int is_rectangle(char **map);
-int is_enclosed(char **map);
-int has_everything(char **map);
+char 		**read_map(char *file);
+int 		is_rectangle(char **map);
+int 		is_enclosed(char **map);
+int 		has_everything(char **map);
+int 		is_map_solvable(char **map);
+int			is_map_playable(char **map);
 #endif

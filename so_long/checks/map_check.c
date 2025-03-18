@@ -6,38 +6,12 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:36:02 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/17 18:22:38 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:57:52 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-char **read_map(char *file)
-{
-	int fd;
-	char *line;
-	char *temp;
-	char **map;
-
-	fd = open(file, O_RDONLY);
-	if (fd < 0)
-		return (ft_printf("file not found"), NULL);
-	temp = ft_strdup("");
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		temp = gnl_strjoin(temp, line);
-		free(line);
-	}
-	close(fd);
-	if (!temp[0])
-		return (ft_printf("file vuoto"), free(temp), NULL);
-	map = ft_split(temp, '\n');
-	free(temp);
-	return (map);
-}
 
 int is_rectangle(char **map)
 {

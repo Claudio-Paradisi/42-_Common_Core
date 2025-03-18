@@ -6,7 +6,7 @@
 #    By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/17 11:26:03 by cparadis          #+#    #+#              #
-#    Updated: 2025/03/17 15:42:06 by cparadis         ###   ########.fr        #
+#    Updated: 2025/03/18 11:40:50 by cparadis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_printf/ft_putstr_count.c ft_printf/ft_putuns_int_count.c ft_printf/ft_strlen.c \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-	ft_matrix/ft_matrixlen.c ft_matrix/ft_freematrix.c
+	ft_matrix/ft_matrixlen.c ft_matrix/ft_freematrix.c ft_matrix/ft_floodfill.c \
+	ft_matrix/ft_matrixdup.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

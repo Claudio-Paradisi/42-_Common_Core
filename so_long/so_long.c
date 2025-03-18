@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:47:48 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/17 18:00:05 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:45:00 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	main(int ac, char **av)
 	while (map[i])
 		ft_printf("%s\n", map[i++]);
 	i = 0;
-	ft_printf("has_everything: %d, is_rectangle: %d, is_enclosed: %d\n", has_everything(map), is_rectangle(map), is_enclosed(map));
+	ft_printf("has_everything: %d, is_rectangle: %d, is_enclosed: %d, is_solvable: %d, is_playable: %d\n" , has_everything(map), is_rectangle(map), is_enclosed(map), is_map_solvable(map), is_map_playable(map));
 	while (map[i])
 		free(map[i++]);
 	free(map);

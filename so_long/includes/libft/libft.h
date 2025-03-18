@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 14:45:35 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/17 15:46:18 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:17:55 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,6 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 
 size_t 				ft_matrixlen(char **matrix);
 void				ft_freematrix(char **matrix);
+void    			ft_floodfill(char **map, int x, int y);
+char    			**ft_matrixdup(char ** matrix);
 #endif
