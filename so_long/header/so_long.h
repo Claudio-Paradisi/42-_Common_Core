@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/18 11:45:00 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:47:14 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@
 #define FALSE 0
 #define TRUE 1
 
+typedef struct s_map
+{
+    char **grid;  
+    int width;    
+    int height;   
+    int player_x; 
+    int player_y; 
+    int collectibles; 
+    int exits;    
+}               t_map;
+
 typedef struct s_my_img
 {
 	void *img;
@@ -36,6 +47,7 @@ typedef struct s_game
 {
 	void *mlx;
 	void *window;
+	t_map *map;
 	t_my_img img;
 }				t_game;
 
@@ -52,4 +64,7 @@ int 		is_enclosed(char **map);
 int 		has_everything(char **map);
 int 		is_map_solvable(char **map);
 int			is_map_playable(char **map);
+void 		init_map(t_game *game, char *av);
+
+int 		on_destroy(t_game *game);
 #endif

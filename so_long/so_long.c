@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:47:48 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/18 11:45:00 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:08:19 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,20 @@
 int on_destroy(t_game *game)
 {
 	ft_printf("finestra chiusa");
-	mlx_destroy_image(game->mlx, game->img.img);
-	mlx_destroy_window(game->mlx, game->window);
+	if (game->img.img)
+		mlx_destroy_image(game->mlx, game->img.img);
+	if (game->window)	
+		mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);
+	if (game->map)
+	{
+		if(game->map->grid)
+			ft_freematrix(game->map->grid);
+		free(game->map);
+	}
 	free(game->mlx);
 	free(game);
-	exit(0);
+	exit(1);
 	return (0);
 }
 
@@ -48,28 +56,45 @@ int on_keypress(int key, t_game *game)
 	return (0);
 }
 */
+
+void init_game(t_game *game, char *av)
+{
+	
+	game->mlx = mlx_init();
+	if(!game->mlx)
+	{
+		printf("Errore inizializzazione mlx_library\n");
+		return ;
+	}
+	game->window = NULL;
+	ft_printf("2\n");
+	game->map = ft_calloc(1, sizeof(t_map));
+	init_map(game, av);
+	ft_printf("5\n");
+	/*
+	if (!game->window)
+	{
+		printf("Errore creazione finestra\n");
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		free(game);
+		return 1;
+	}*/
+}
 int	main(int ac, char **av)
 {
-	/*t_game *game;
+	t_game *game;
 	
+	if (ac != 2)
+		return(ft_printf("argument number not valid!\n"));
+	ft_printf("1\n");
 	game = ft_calloc(1, sizeof(t_game));
-		game->mlx = mlx_init();
-		if(!game->mlx)
-		{
-			printf("Errore inizializzazione mlx_library\n");
-			return 1;
-		}	
-		game->window = mlx_new_window(game->mlx, 800, 600, "test_mlx_lib");
-		if (!game->window)
-		{
-			printf("Errore creazione finestra\n");
-			mlx_destroy_display(game->mlx);
-			free(game->mlx);
-			free(game);
-			return 1;
-		}
+	init_game(game, av[1]);
+	game->window = mlx_new_window(game->mlx, game->map->width * 32, 
+		game->map->height * 32, "test_mlx_lib");
+	ft_printf("6\n");
 		
-		game->img.img = mlx_new_image(game->mlx, 500, 400);
+		/*game->img.img = mlx_new_image(game->mlx, 500, 400);
 		game->img.address = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel, &game->img.line_length, &game->img.endian);
 		for (int i = 0; i < 100; i++)
 		{
@@ -81,25 +106,8 @@ int	main(int ac, char **av)
 		mlx_put_image_to_window(game->mlx, game->window, game->img.img, 0, 0);
 		
 		mlx_hook(game->window, KeyRelease, KeyReleaseMask, &on_keypress, game);
-		mlx_hook(game->window, EnterNotify, EnterWindowMask, &on_in ,game);
-		mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &on_destroy, game);
-		mlx_hook(game->window, KeymapNotify, 1L<<17, &on_hide, game);
-		mlx_loop(game->mlx);*/
-	char **map;
-	int	i;
-
-	if (ac != 2)
-		return(ft_printf("argument number not valid!\n"));
-	map = read_map(av[1]);
-	if (!map)
-		return (1);
-	i = 0;
-	while (map[i])
-		ft_printf("%s\n", map[i++]);
-	i = 0;
-	ft_printf("has_everything: %d, is_rectangle: %d, is_enclosed: %d, is_solvable: %d, is_playable: %d\n" , has_everything(map), is_rectangle(map), is_enclosed(map), is_map_solvable(map), is_map_playable(map));
-	while (map[i])
-		free(map[i++]);
-	free(map);
+		mlx_hook(game->window, EnterNotify, EnterWindowMask, &on_in ,game);*/
+	mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &on_destroy, game);
+	mlx_loop(game->mlx);
 	return (0);
 }
