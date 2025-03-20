@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:47:48 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/19 15:08:19 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:17:59 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int on_destroy(t_game *game)
 {
 	ft_printf("finestra chiusa");
-	if (game->img.img)
-		mlx_destroy_image(game->mlx, game->img.img);
+	if (game->assets.background.img)
+		mlx_destroy_image(game->mlx, game->assets.background.img);
 	if (game->window)	
 		mlx_destroy_window(game->mlx, game->window);
 	mlx_destroy_display(game->mlx);
@@ -90,10 +90,14 @@ int	main(int ac, char **av)
 	ft_printf("1\n");
 	game = ft_calloc(1, sizeof(t_game));
 	init_game(game, av[1]);
-	game->window = mlx_new_window(game->mlx, game->map->width * 32, 
-		game->map->height * 32, "test_mlx_lib");
+	ft_printf("game->mlx: %p\n", game->mlx);
+	game->window = mlx_new_window(game->mlx, game->map->width * TILE_SIZE, 
+		game->map->height * TILE_SIZE, "test_map");
 	ft_printf("6\n");
-		
+	load_assets(game);
+	ft_printf("7\n");
+	draw_background(game);
+	ft_printf("8\n");
 		/*game->img.img = mlx_new_image(game->mlx, 500, 400);
 		game->img.address = mlx_get_data_addr(game->img.img, &game->img.bits_per_pixel, &game->img.line_length, &game->img.endian);
 		for (int i = 0; i < 100; i++)

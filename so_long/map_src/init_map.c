@@ -6,13 +6,13 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:48:42 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/19 16:07:11 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/19 17:52:43 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-int count_elements(t_map *map)
+void count_elements(t_map *map)
 {
     int y;
     int x;
@@ -45,8 +45,8 @@ void init_map(t_game *game, char *av)
     ft_printf("4\n");
     if (!is_map_playable(game->map->grid))
     {
-        on_destroy(game);
         ft_printf("errore mappa non giocabile");
+        on_destroy(game);
         exit(1);
     }
     game->map->width = ft_strlen(game->map->grid[0]);

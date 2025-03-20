@@ -5,8 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = so_long.c \
 color.c \
-checks/map_check.c checks/is_map_playable.c\
-map_src/create_map.c  map_src/init_map.c\
+checks/map_check.c checks/is_map_playable.c \
+map_src/create_map.c  map_src/init_map.c map_src/fill_map.c \
 
 
 OBJECTS = $(SOURCES:.c=.o)

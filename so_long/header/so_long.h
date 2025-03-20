@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/19 15:47:14 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/20 15:59:25 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 #define FALSE 0
 #define TRUE 1
+
+#define TILE_SIZE	64
 
 typedef struct s_map
 {
@@ -43,12 +45,22 @@ typedef struct s_my_img
 	int endian;
 }				t_my_img;
 
+typedef struct s_assets
+{
+	t_my_img background;
+	t_my_img wall;
+	t_my_img collect;
+	t_my_img exit;
+	t_my_img player;
+}				t_assets;
+
+
 typedef struct s_game
 {
 	void *mlx;
 	void *window;
 	t_map *map;
-	t_my_img img;
+	t_assets assets;
 }				t_game;
 
 
@@ -64,7 +76,10 @@ int 		is_enclosed(char **map);
 int 		has_everything(char **map);
 int 		is_map_solvable(char **map);
 int			is_map_playable(char **map);
+
 void 		init_map(t_game *game, char *av);
+void    	load_assets(t_game *game);
+void 		draw_background(t_game *game);
 
 int 		on_destroy(t_game *game);
 #endif

@@ -1,0 +1,8 @@
+/* test.xpm */
+static char *test_xpm[] = {
+    "2 2 2 1",
+    "A c #FFFFFF",
+    "B c #000000",
+    "AB",
+    "BA"
+};
