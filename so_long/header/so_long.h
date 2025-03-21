@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/20 15:59:25 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/21 18:03:05 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #define FALSE 0
 #define TRUE 1
 
-#define TILE_SIZE	64
+#define TILE_SIZE	32
 
 typedef struct s_map
 {
@@ -47,6 +47,7 @@ typedef struct s_my_img
 
 typedef struct s_assets
 {
+	t_my_img grass;
 	t_my_img background;
 	t_my_img wall;
 	t_my_img collect;

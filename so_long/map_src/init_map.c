@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:48:42 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/19 17:52:43 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/21 19:49:34 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,9 @@ void init_map(t_game *game, char *av)
     }
     game->map->width = ft_strlen(game->map->grid[0]);
     game->map->height = ft_matrixlen(game->map->grid);
+    game->map->collectibles = 0;
+    game->map->exits = 0;
+    game->map->player_x = 0;
+    game->map->player_y = 0;
+    count_elements(game->map);
 }
