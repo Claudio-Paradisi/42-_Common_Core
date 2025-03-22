@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:48:42 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/22 13:14:16 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/22 19:35:24 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ void init_map(t_game *game, char *av)
     game->map->exits = 0;
     game->map->player_x = 0;
     game->map->player_y = 0;
+    game->map->key_dir = DOWN;
     count_elements(game->map);
 }

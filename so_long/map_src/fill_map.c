@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:50:05 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/22 17:34:57 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/22 19:50:33 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,14 @@ void    load_assets(t_game *game)
     "assets/images/grass/Grass.xpm");
     load_asset(game, &game->assets.grass,
     "assets/images/grass/Background32.xpm");
-    load_asset(game, &game->assets.player,
-    "assets/images/player/PlayerS.xpm");
+    load_asset(game, &game->assets.player_right,
+    "assets/images/player/PlayerR.xpm");
+    load_asset(game, &game->assets.player_left,
+    "assets/images/player/PlayerL.xpm");
+    load_asset(game, &game->assets.player_up,
+    "assets/images/player/PlayerU.xpm");
+    load_asset(game, &game->assets.player_down,
+    "assets/images/player/PlayerD.xpm");
     load_asset(game, &game->assets.wall,
     "assets/images/wall/WallBush32.xpm");
     load_asset(game, &game->assets.collect,
@@ -47,6 +53,24 @@ void    load_assets(t_game *game)
     */
 }
 
+static void draw_player(t_game *game, int *x, int *y)
+{
+    if (game->map->grid[*y][*x] == 'P')
+    {
+        if (game->map->key_dir == RIGHT || game->map->key_dir == D)
+            mlx_put_image_to_window(game->mlx, game->window,
+            game->assets.player_right.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
+        else if (game->map->key_dir == LEFT || game->map->key_dir == A)
+            mlx_put_image_to_window(game->mlx, game->window,
+            game->assets.player_left.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
+        else if (game->map->key_dir == UP || game->map->key_dir == W)
+            mlx_put_image_to_window(game->mlx, game->window,
+            game->assets.player_up.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
+        else if (game->map->key_dir == DOWN || game->map->key_dir == S)
+            mlx_put_image_to_window(game->mlx, game->window,
+            game->assets.player_down.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
+    }
+}
 static void draw_assets(t_game *game, int *x, int *y)
 {
     if (game->map->grid[*y][*x] == '1')
@@ -58,9 +82,7 @@ static void draw_assets(t_game *game, int *x, int *y)
     if (game->map->grid[*y][*x] == 'E' && game->map->collectibles == 0)
         mlx_put_image_to_window(game->mlx, game->window,
         game->assets.exit.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
-    if (game->map->grid[*y][*x] == 'P')
-        mlx_put_image_to_window(game->mlx, game->window,
-        game->assets.player.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
+    draw_player(game, x, y);
 }
 
 void draw_background(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/22 13:36:47 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/22 19:37:04 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@
 
 typedef struct s_map
 {
-    char **grid;  
-    int width;    
-    int height;   
-    int player_x; 
-    int player_y; 
-    int collectibles; 
-    int exits;    
+    char **grid;
+    int width;
+    int height;
+    int player_x;
+    int player_y;
+    int collectibles;
+    int exits;
+	int key_dir;
 }               t_map;
 
 typedef struct s_my_img
@@ -62,7 +63,10 @@ typedef struct s_assets
 	t_my_img wall;
 	t_my_img collect;
 	t_my_img exit;
-	t_my_img player;
+	t_my_img player_up;
+	t_my_img player_down;
+	t_my_img player_left;
+	t_my_img player_right;
 }				t_assets;
 
 
