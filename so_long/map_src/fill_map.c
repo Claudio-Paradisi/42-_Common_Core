@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:50:05 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/21 19:26:02 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/22 17:34:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void draw_assets(t_game *game, int *x, int *y)
     if (game->map->grid[*y][*x] == 'C')
         mlx_put_image_to_window(game->mlx, game->window,
         game->assets.collect.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
-    if (game->map->grid[*y][*x] == 'E')
+    if (game->map->grid[*y][*x] == 'E' && game->map->collectibles == 0)
         mlx_put_image_to_window(game->mlx, game->window,
         game->assets.exit.img, *(x) * TILE_SIZE, *(y) * TILE_SIZE);
     if (game->map->grid[*y][*x] == 'P')

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 10:49:22 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/21 18:03:05 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/22 13:36:47 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@
 #define TRUE 1
 
 #define TILE_SIZE	32
+
+#define W 119
+#define A 97
+#define S 115
+#define D 100
+#define UP 65362
+#define DOWN 65364
+#define LEFT 65361
+#define RIGHT 65363
+#define ESC 65307
 
 typedef struct s_map
 {
@@ -81,6 +91,8 @@ int			is_map_playable(char **map);
 void 		init_map(t_game *game, char *av);
 void    	load_assets(t_game *game);
 void 		draw_background(t_game *game);
+void 		move_player(t_game *game, int dx, int dy);
 
 int 		on_destroy(t_game *game);
+int			handle_keypress(int keycode, t_game *game);
 #endif
