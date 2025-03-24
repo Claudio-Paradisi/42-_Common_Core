@@ -6,19 +6,18 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 14:36:02 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/18 10:57:52 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:35:06 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/so_long.h"
 
-
-int is_rectangle(char **map)
+int	is_rectangle(char **map)
 {
-	int row;
-	int col;
-	int current_row;
-	int i;
+	int	row;
+	int	col;
+	int	current_row;
+	int	i;
 
 	row = ft_strlen(map[0]);
 	col = ft_matrixlen(map);
@@ -31,16 +30,16 @@ int is_rectangle(char **map)
 		if (current_row == row)
 			i++;
 		else
-			return (FALSE); 
+			return (FALSE);
 	}
 	return (TRUE);
 }
 
-int is_enclosed(char **map)
+int	is_enclosed(char **map)
 {
-	size_t i;
-	int j;
-	
+	size_t	i;
+	int		j;
+
 	i = 0;
 	while (map[i])
 	{
@@ -48,40 +47,42 @@ int is_enclosed(char **map)
 		if (map[i][j] != '1' || map[i][ft_strlen(map[i]) - 1] != '1')
 			return (FALSE);
 		if (i == 0 || i == (ft_matrixlen(map) - 1))
-			while(map[i][j])
+		{
+			while (map[i][j])
 			{
 				if (map[i][j] != '1')
 					return (FALSE);
-				j++;	
+				j++;
 			}
+		}
 		i++;
 	}
 	return (TRUE);
 }
 
-static void check_row(char *map, int *collect, int *player, int *exit)
+static void	check_row(char *map, int *collect, int *player, int *exit)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
-	while(map[i])
+	while (map[i])
 	{
-		if (map[i]== 'C')
+		if (map[i] == 'C')
 			(*collect)++;
 		if (map[i] == 'P')
 			(*player)++;
-		if (map[i]== 'E')
+		if (map[i] == 'E')
 			(*exit)++;
 		i++;
 	}
 }
 
-int has_everything(char **map)
+int	has_everything(char **map)
 {
-	int collect;
-	int player;
-	int exit;
-	int i;
+	int	collect;
+	int	player;
+	int	exit;
+	int	i;
 
 	collect = 0;
 	player = 0;

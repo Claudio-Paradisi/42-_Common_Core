@@ -4,9 +4,9 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 SOURCES = so_long.c \
-color.c \
-checks/map_check.c checks/is_map_playable.c \
-map_src/create_map.c  map_src/init_map.c map_src/fill_map.c map_src/update_player.c\
+checks/map_check.c checks/is_map_playable.c checks/map_limits.c \
+map_src/create_map.c  map_src/init_map.c map_src/fill_map.c map_src/update_player.c \
+map_src/steps_on_map.c map_src/draw_steps.c\
 events/destroy.c events/key_press.c
 
 

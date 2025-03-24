@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 12:38:19 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/24 10:47:28 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:44:28 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	ft_nbr_len(long nbr)
 /*
 / a function that initializes the string with the first char '0'
 */
+
 static char	*ft_init_str(int len)
 {
 	char	*str;
@@ -53,6 +54,7 @@ static char	*ft_init_str(int len)
 /*
 / the main function where the number is converted in a string
 */
+
 char	*ft_itoa(int n)
 {
 	char	*buffer;

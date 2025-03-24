@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef LIBFT_H
+#ifndef LIBFT_H
 # define LIBFT_H
 
+# include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 # include <stdint.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line/get_next_line.h"
-# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
@@ -76,8 +76,8 @@ t_list				*ft_lstnew(void *content);
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-size_t 				ft_matrixlen(char **matrix);
+size_t				ft_matrixlen(char **matrix);
 void				ft_freematrix(char **matrix);
-void    			ft_floodfill(char **map, int x, int y);
-char    			**ft_matrixdup(char ** matrix);
+void				ft_floodfill(char **map, int x, int y);
+char				**ft_matrixdup(char **matrix);
 #endif

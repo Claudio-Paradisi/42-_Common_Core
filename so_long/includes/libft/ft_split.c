@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:06:17 by cparadis          #+#    #+#             */
-/*   Updated: 2025/02/24 11:08:21 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:43:56 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ static size_t	count_words(char const *s, char c)
 }
 /*
 / a function that will be called twice, once it will skip the delimiter and once
-/ it will skip any other chars 
+/ it will skip any other chars
 */
+
 static char	*char_skipper(char *s, char c, char x)
 {
 	if (x == '=')
@@ -58,6 +59,7 @@ static char	*char_skipper(char *s, char c, char x)
 /*
 / the main function where the string is converted in a matrix
 */
+
 char	**ft_split(const char *s, char c)
 {
 	char	*start;

@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 15:39:21 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/17 15:41:08 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:48:16 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_freematrix(char **matrix)
 {
-	int i;
-	
+	int	i;
+
 	if (!matrix)
 		return ;
 	i = 0;

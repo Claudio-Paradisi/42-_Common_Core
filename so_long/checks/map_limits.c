@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_floodfill.c                                     :+:      :+:    :+:   */
+/*   map_limits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 11:01:35 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/24 14:45:19 by cparadis         ###   ########.fr       */
+/*   Created: 2025/03/24 10:46:40 by cparadis          #+#    #+#             */
+/*   Updated: 2025/03/24 16:57:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_floodfill(char **map, int x, int y)
+#include "../header/so_long.h"
+
+int	within_max_width(char **map)
 {
-	if (map[y][x] == '1' || map[y][x] == 'F')
-		return ;
-	map[y][x] = 'F';
-	ft_floodfill(map, x + 1, y);
-	ft_floodfill(map, x - 1, y);
-	ft_floodfill(map, x, y + 1);
-	ft_floodfill(map, x, y - 1);
+	if (ft_strlen(map[0]) > 1000)
+		return (FALSE);
+	return (TRUE);
+}
+
+int	within_max_height(char **map)
+{
+	if (ft_matrixlen(map) > 80)
+		return (FALSE);
+	return (TRUE);
 }

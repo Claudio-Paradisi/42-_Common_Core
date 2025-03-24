@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 10:01:38 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/22 18:56:42 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/24 14:40:12 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	handle_keypress(int keycode, t_game *game)
 		game->map->key_dir = keycode;
 		move_player(game, -1, 0);
 	}
-	else if (keycode == D|| keycode == RIGHT)
+	else if (keycode == D || keycode == RIGHT)
 	{
 		game->map->key_dir = keycode;
 		move_player(game, 1, 0);
