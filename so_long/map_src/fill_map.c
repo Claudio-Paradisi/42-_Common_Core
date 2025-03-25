@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:50:05 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/24 16:24:46 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:24:34 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	load_asset(t_game *game, t_my_img *img, char *path)
 	int	width;
 	int	height;
 
-	ft_printf("7a\n");
 	img->img = mlx_xpm_file_to_image(game->mlx, path, &width, &height);
 	if (!img->img)
 	{
-		ft_printf("error failed to load image: %s\n", path);
+		ft_printf("Error\nfailed to load image: %s\n", path);
 		on_destroy(game);
 	}
 	img->address = mlx_get_data_addr(img->img, &img->bits_per_pixel,

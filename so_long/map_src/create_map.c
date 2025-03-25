@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:54:12 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/24 14:52:58 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:22:26 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	check_null_line(char *line, char *temp, int fd)
 			free(temp);
 		free(line);
 		close(fd);
-		ft_printf("Not valid map");
+		ft_printf("Error\nNot valid map\n");
 		exit(1);
 	}
 }
@@ -34,7 +34,7 @@ char	**read_map(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (ft_printf("file not found"), NULL);
+		return (ft_printf("Error\nfile not found\n"), NULL);
 	temp = ft_strdup("");
 	while (1)
 	{
@@ -47,7 +47,7 @@ char	**read_map(char *file)
 	}
 	close(fd);
 	if (!temp[0])
-		return (ft_printf("file vuoto"), free(temp), NULL);
+		return (ft_printf("Error\nEmpty file\n"), free(temp), NULL);
 	map = ft_split(temp, '\n');
 	free(temp);
 	return (map);

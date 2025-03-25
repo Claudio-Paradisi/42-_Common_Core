@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 12:48:42 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/24 17:58:49 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:26:26 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ void	count_elements(t_map *map)
 void	init_map(t_game *game, char *av)
 {
 	game->map->grid = NULL;
-	ft_printf("3\n");
 	game->map->grid = read_map(av);
-	ft_printf("4\n");
 	if (!is_map_playable(game->map->grid) || !is_dot_ber(av))
 	{
 		ft_printf("Error\nMap is not playable\n");

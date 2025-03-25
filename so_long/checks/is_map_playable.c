@@ -6,7 +6,7 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 10:59:38 by cparadis          #+#    #+#             */
-/*   Updated: 2025/03/24 14:38:09 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:33:40 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,33 @@ int	is_dot_ber(char *av)
 	return (TRUE);
 }
 
+int	has_right_chars(char **map)
+{
+	int		i;
+	int		j;
+	char	c;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			c = map[i][j];
+			if (c != '0' && c != '1' && c != 'P' && c != 'E'
+				&& c != 'C')
+				return (FALSE);
+			j++;
+		}
+		i++;
+	}
+	return (TRUE);
+}
+
 int	is_map_playable(char **map)
 {
-	if (!is_map_solvable(map) || !is_enclosed(map) || !is_rectangle(map)
-		|| !has_everything(map))
+	if (!has_right_chars(map) || !is_enclosed(map) || !is_rectangle(map)
+		|| !has_everything(map) || !is_map_solvable(map))
 		return (FALSE);
 	if (!within_max_height(map) || !within_max_width(map))
 		return (FALSE);
