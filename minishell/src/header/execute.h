@@ -6,13 +6,13 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 17:41:33 by cparadis          #+#    #+#             */
-/*   Updated: 2025/04/04 18:18:08 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:31:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXECUTE_H
 #define EXECUTE_H
 
-#include "minishell.h"
+#include "../../includes/libft/libft.h"
 
 #endif

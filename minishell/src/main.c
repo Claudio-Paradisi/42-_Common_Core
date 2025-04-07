@@ -6,12 +6,11 @@
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 17:44:49 by cparadis          #+#    #+#             */
-/*   Updated: 2025/04/04 19:11:19 by cparadis         ###   ########.fr       */
+/*   Updated: 2025/04/07 12:31:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/execute.h"
-#include "header/parsing.h"
+#include "header/minishell.h"
 
 int main(int ac, char **av)
 {
