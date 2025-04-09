@@ -3,7 +3,8 @@ CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = src/main.c
+SOURCES = src/main.c src/execute/custom_func.c src/execute/exec_cmd.c \
+src/execute/path_finder.c src/execute/free_lists.c
 
 
 OBJECTS = $(SOURCES:.c=.o)

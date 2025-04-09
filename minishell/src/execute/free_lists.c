@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_lists.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cparadis <cparadis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 17:44:49 by cparadis          #+#    #+#             */
-/*   Updated: 2025/04/09 12:43:58 by cparadis         ###   ########.fr       */
+/*   Created: 2025/04/09 12:29:34 by cparadis          #+#    #+#             */
+/*   Updated: 2025/04/09 15:17:57 by cparadis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/minishell.h"
+#include "../header/minishell.h"
 
-int main(int ac, char **av, char **envp)
+void    free_pipex(t_pipe *pipex)
 {
-    if (ac == 1 || (ac == 2 && !av[1]))
+    ft_freematrix(pipex->paths);
+    free(pipex);
+}
+
+void    free_cmd_list(t_cmd *cmd_list)
+{
+    t_cmd   *temp;
+
+    while (cmd_list)
     {
-        t_cmd *cmd_list = mock_cmds();
-        execute_pipeline(cmd_list, envp);
-        free_cmd_list(cmd_list);
+        temp = cmd_list->next;
+        ft_freematrix(cmd_list->args);
+        free(cmd_list);
+        cmd_list = temp;
     }
-    return (0);
+    temp = NULL;
 }
